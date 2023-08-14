@@ -1,4 +1,10 @@
 {
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": ["@typescript-eslint"],
   "extends": ["airbnb", "next/core-web-vitals", "prettier"],
   "rules": {
     "react/jsx-filename-extension": [
@@ -7,6 +13,10 @@
     ],
     "import/no-extraneous-dependencies": ["off"],
     "import/extensions": ["off"],
-    "react/function-component-definition": ["off"]
+    "react/function-component-definition": ["off"],
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "error",
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": "warn"
   }
 }
