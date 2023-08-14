@@ -1,0 +1,5 @@
+@use '../base/colors' as colors;
+
+.page-title {
+  color: colors.$color-primary;
+}
