@@ -8,39 +8,37 @@ export default function TheNav() {
 
   return (
     <nav className="navigation">
-      <div className="navigation-logo">
+      <Link href="/" className="navigation-logo">
         <Image
           src="/assets/images/flowrspot_logo.svg"
           alt="FlowrSpot Logo"
           width={30}
           height={30}
         />
-        <Link href="/" className="navigation-logo-title">
-          FlowrSpot
-        </Link>
-      </div>
+        <span className="navigation-logo-title">{t('title')}</span>
+      </Link>
 
       {/* TODO Make a hamburger for mobile/tablet */}
 
-      <div className="navigation-links">
-        <ul>
-          <li>
-            <Link href="/spots">{t('links.flowers')}</Link>
-          </li>
-          <li>
-            <Link href="/spots">{t('links.latestSightings')}</Link>
-          </li>
-          <li>
-            <Link href="/spots">{t('links.favorites')}</Link>
-          </li>
-          <li>
-            <Link href="/spots">{t('links.login')}</Link>
-          </li>
-          <li>
-            <Link href="/spots">{t('links.newAccount')}</Link>
-          </li>
-        </ul>
-      </div>
+      <ul className="navigation-links">
+        <li>
+          <Link href="/spots">{t('links.flowers')}</Link>
+        </li>
+        <li>
+          <Link href="/spots">{t('links.latestSightings')}</Link>
+        </li>
+        <li>
+          <Link href="/spots">{t('links.favorites')}</Link>
+        </li>
+        <li>
+          <Link href="/spots" className="text-primary">
+            {t('links.login')}
+          </Link>
+        </li>
+        <li className="navigation-links-button">
+          <Link href="/spots">{t('links.newAccount')}</Link>
+        </li>
+      </ul>
     </nav>
   )
 }

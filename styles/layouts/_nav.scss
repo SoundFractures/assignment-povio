@@ -1,5 +1,61 @@
 @use '../base/colors' as colors;
+@use '../abstracts/utils' as utils;
 
-.page-title {
-  color: colors.$color-primary;
+.navigation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 80px;
+  justify-content: space-between;
+
+  padding: 20px 20px 20px 23px;
+}
+
+.navigation-logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  height: 30px;
+}
+.navigation-logo-title {
+  color: colors.$color-primary-light;
+  font-size: utils.pxToRem(20);
+  font-weight: 700;
+  line-height: utils.pxToRem(14);
+}
+
+.navigation-links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: end;
+
+  width: 606px;
+  // Note | Design is a bit scuffed here, not sure which gap to use,
+  // seems srot to set paddings to each link instead of using gap
+  gap: 30px;
+  li {
+    display: inline;
+    color: colors.$color-text-lighten-1;
+    font-size: utils.pxToRem(14);
+    font-weight: 500;
+    line-height: utils.pxToRem(14); /* 100% */
+  }
+}
+.navigation-links-button {
+  border-radius: 50px;
+  background: linear-gradient(270deg, #ecbcb3 0%, #eaa79e 100%);
+  box-shadow: 0px 15px 20px 0px rgba(234, 168, 159, 0.2);
+
+  a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 140px;
+    height: 40px;
+    color: colors.$color-white;
+  }
 }
