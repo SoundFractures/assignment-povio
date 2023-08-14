@@ -2,13 +2,14 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
+import { Pages } from '~/enums'
 
 export default function TheNav() {
   const t = useTranslations('navigation')
 
   return (
     <nav className="navigation">
-      <Link href="/" className="navigation-logo">
+      <Link href={Pages.Home} className="navigation-logo">
         <Image
           src="/assets/images/flowrspot_logo.svg"
           alt="FlowrSpot Logo"
@@ -22,21 +23,21 @@ export default function TheNav() {
 
       <ul className="navigation-links">
         <li>
-          <Link href="/flowers">{t('links.flowers')}</Link>
+          <Link href={Pages.Flowers}>{t('links.flowers')}</Link>
         </li>
         <li>
-          <Link href="/latest-sightings">{t('links.latestSightings')}</Link>
+          <Link href={Pages.LatestSightings}>{t('links.latestSightings')}</Link>
         </li>
         <li>
-          <Link href="/favorites">{t('links.favorites')}</Link>
+          <Link href={Pages.Favorites}>{t('links.favorites')}</Link>
         </li>
         <li>
-          <Link href="/" className="text-primary">
+          <Link href={Pages.Home} className="text-primary">
             {t('links.login')}
           </Link>
         </li>
         <li className="navigation-links-button">
-          <Link href="/">{t('links.newAccount')}</Link>
+          <Link href={Pages.Home}>{t('links.newAccount')}</Link>
         </li>
       </ul>
       <button className="navigation-hamburger" type="button">
