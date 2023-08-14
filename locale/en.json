@@ -1,5 +1,12 @@
 {
-  "index": {
-    "title": "Hello there"
+  "navigation": {
+    "title": "FlowrSpot",
+    "links": {
+      "flowers": "Flowers",
+      "latestSightings": "Latest sightings",
+      "favorites": "Favorites",
+      "login": "Login",
+      "newAccount": "New account"
+    }
   }
 }
