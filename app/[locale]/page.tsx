@@ -2,11 +2,9 @@
 // import styles from '~/styles/pages/Home.module.scss'
 import { useTranslations } from 'next-intl'
 
-export default function Home() {
+const Home = () => {
   const t = useTranslations('index')
-  return (
-    <section>
-      <h1 className="page-title">{t('title')}</h1>
-    </section>
-  )
+  return <section>{/* <h1 className="page-title">{t('title')}</h1> */}</section>
 }
+
+export default Home
