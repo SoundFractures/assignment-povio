@@ -39,6 +39,14 @@ export default function TheNav() {
           <Link href="/spots">{t('links.newAccount')}</Link>
         </li>
       </ul>
+      <button className="navigation-hamburger" type="button">
+        <Image
+          src="/assets/icons/hamburger.svg"
+          alt="Menu"
+          width={24}
+          height={16}
+        />
+      </button>
     </nav>
   )
 }
