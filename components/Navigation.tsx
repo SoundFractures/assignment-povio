@@ -22,21 +22,21 @@ export default function TheNav() {
 
       <ul className="navigation-links">
         <li>
-          <Link href="/spots">{t('links.flowers')}</Link>
+          <Link href="/flowers">{t('links.flowers')}</Link>
         </li>
         <li>
-          <Link href="/spots">{t('links.latestSightings')}</Link>
+          <Link href="/latest-sightings">{t('links.latestSightings')}</Link>
         </li>
         <li>
-          <Link href="/spots">{t('links.favorites')}</Link>
+          <Link href="/favorites">{t('links.favorites')}</Link>
         </li>
         <li>
-          <Link href="/spots" className="text-primary">
+          <Link href="/" className="text-primary">
             {t('links.login')}
           </Link>
         </li>
         <li className="navigation-links-button">
-          <Link href="/spots">{t('links.newAccount')}</Link>
+          <Link href="/">{t('links.newAccount')}</Link>
         </li>
       </ul>
       <button className="navigation-hamburger" type="button">

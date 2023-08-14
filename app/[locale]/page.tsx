@@ -1,10 +1,15 @@
 // import Image from 'next/image'
 // import styles from '~/styles/pages/Home.module.scss'
-import { useTranslations } from 'next-intl'
+// import { useTranslations } from 'next-intl'
 
-const Home = () => {
-  const t = useTranslations('index')
-  return <section>{/* <h1 className="page-title">{t('title')}</h1> */}</section>
+const HomePage = () => {
+  // const t = useTranslations('index')
+  console.log('temp')
+  return (
+    <section>
+      <div className="home-hero">nekaj </div>
+    </section>
+  )
 }
 
-export default Home
+export default HomePage
