@@ -19,8 +19,6 @@ export default function TheNav() {
         <span className="navigation-logo-title">{t('title')}</span>
       </Link>
 
-      {/* TODO Make a hamburger for mobile/tablet */}
-
       <ul className="navigation-links">
         <li>
           <Link href={Pages.Flowers}>{t('links.flowers')}</Link>
