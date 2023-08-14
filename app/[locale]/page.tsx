@@ -5,8 +5,8 @@ import { useTranslations } from 'next-intl'
 export default function Home() {
   const t = useTranslations('index')
   return (
-    <main>
+    <section>
       <h1 className="page-title">{t('title')}</h1>
-    </main>
+    </section>
   )
 }
