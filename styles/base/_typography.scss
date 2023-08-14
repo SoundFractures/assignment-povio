@@ -1,3 +1,7 @@
+@use '../abstracts/utils' as utils;
+@use '../base/colors' as colors;
+@use '../abstracts/mixins' as *;
+
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap');
 
@@ -10,4 +14,24 @@ body {
 nav {
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
+}
+
+.text-hero {
+  color: colors.$color-text;
+  text-align: center;
+  font-size: utils.pxToRem(48);
+  font-style: normal;
+  font-weight: 600;
+  line-height: utils.pxToRem(40);
+
+  // @include tablet {
+  //   font-size: utils.pxToRem(21);
+  //   line-height: utils.pxToRem(26);
+  //   color: blue;
+  // }
+  // @include mobile {
+  //   font-size: utils.pxToRem(12);
+  //   line-height: utils.pxToRem(10);
+  //   color: red;
+  // }
 }

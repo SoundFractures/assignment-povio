@@ -1,15 +1,12 @@
 @use '/styles/base/_colors.scss' as colors;
 
-// Forward Vendors, Abstracts and Base styles
 @forward '../styles/vendors/_reset.scss';
-@forward '../styles/abstracts/_mixins.scss';
 
 @forward '../styles/base/_colors.scss';
 @forward '../styles/base/_typography.scss';
 
-// Forward Layouts, Pages and Components styles
-@forward './layouts/';
-@forward './pages/index';
-@forward './components/';
+@forward './layouts';
+@forward './pages';
+@forward './components';
 
 // Global Styles
