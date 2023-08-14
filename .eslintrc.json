@@ -6,6 +6,7 @@
       { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
     ],
     "import/no-extraneous-dependencies": ["off"],
-    "import/extensions": ["off"]
+    "import/extensions": ["off"],
+    "react/function-component-definition": ["off"]
   }
 }
