@@ -10,3 +10,12 @@
 @forward './components';
 
 // Global Styles
+.text-primary {
+  color: colors.$color-primary;
+}
+.text-primary-light {
+  color: colors.$color-primary-light;
+}
+.text-text {
+  color: colors.$color-text;
+}
