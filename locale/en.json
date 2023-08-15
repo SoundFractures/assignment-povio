@@ -8,5 +8,9 @@
       "login": "Login",
       "newAccount": "New account"
     }
+  },
+  "home": {
+    "title": "Discover flowers around you",
+    "subtitle": "Explore between more than {count} sightings"
   }
 }

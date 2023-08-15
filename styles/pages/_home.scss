@@ -1,5 +1,51 @@
 @use '../base/colors' as colors;
+@use '../abstracts/variables' as variables;
+@use '../abstracts/utils' as utils;
+@use '../abstracts/mixins' as *;
+// TODO | Make everything *
 
-.page-title {
-  color: colors.$color-primary;
+.home-hero {
+  background-image: url('/assets/images/hero.png');
+  height: 500px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.home-hero-content {
+  color: colors.$color-white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: inherit;
+}
+
+.home-hero-title {
+  font-family: variables.$font-family-montserrat;
+  text-align: center;
+  font-size: utils.pxToRem(40);
+  font-weight: 600;
+  line-height: utils.pxToRem(40);
+
+  @include tablet {
+    font-weight: 300;
+    font-family: variables.$font-family-ubuntu;
+  }
+}
+
+.home-hero-subtitle {
+  font-family: variables.$font-family-ubuntu;
+  text-align: center;
+  font-size: utils.pxToRem(17);
+  font-weight: 400;
+  line-height: utils.pxToRem(17);
+
+  opacity: 0.7;
+  margin-top: 25px;
+
+  @include tablet {
+    font-weight: 300;
+    margin-top: 15px;
+  }
 }
