@@ -1,5 +1,6 @@
 @use '../abstracts/utils' as utils;
 @use '../base/colors' as colors;
+@use '../abstracts/variables' as variables;
 @use '../abstracts/mixins' as *;
 
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap');
@@ -8,11 +9,11 @@
 // TODO | Set fallback fonts
 html,
 body {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: variables.$font-family-ubuntu;
 }
 
 nav {
-  font-family: 'Montserrat', sans-serif;
+  font-family: variables.$font-family-montserrat;
   font-weight: 300;
 }
 
