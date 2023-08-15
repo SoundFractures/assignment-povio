@@ -38,18 +38,22 @@ export default function Navigation({ className }: { className: string }) {
         </Link>
       </li>
       <li>
-        <Link
-          href={Pages.Home}
-          className="text-primary"
+        <button
+          type="button"
+          className="text-primary navigation-button"
           onClick={handleSetMobileNavOpen}
         >
           {t('links.login')}
-        </Link>
+        </button>
       </li>
-      <li className="navigation-button">
-        <Link href={Pages.Home} onClick={handleSetMobileNavOpen}>
+      <li>
+        <button
+          type="button"
+          className="navigation-button navigation-button-filled"
+          onClick={handleSetMobileNavOpen}
+        >
           {t('links.newAccount')}
-        </Link>
+        </button>
       </li>
     </ul>
   )
