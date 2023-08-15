@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import { Pages } from '~/enums'
+import MenuIcon from './MenuIcon'
 
 export default function TheNav() {
   const t = useTranslations('navigation')
@@ -38,14 +39,7 @@ export default function TheNav() {
           <Link href={Pages.Home}>{t('links.newAccount')}</Link>
         </li>
       </ul>
-      <button className="navigation-hamburger" type="button">
-        <Image
-          src="/assets/icons/hamburger.svg"
-          alt="Menu"
-          width={24}
-          height={16}
-        />
-      </button>
+      <MenuIcon />
     </nav>
   )
 }
