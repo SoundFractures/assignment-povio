@@ -3,7 +3,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import { Pages } from '~/enums'
-import MenuIcon from './MenuIcon'
+import StoreProvider from '~/components/StoreProvider'
+import MenuIcon from '~/components/navigation/MenuIcon'
 
 export default function TheNav() {
   const t = useTranslations('navigation')
@@ -39,7 +40,9 @@ export default function TheNav() {
           <Link href={Pages.Home}>{t('links.newAccount')}</Link>
         </li>
       </ul>
-      <MenuIcon />
+      <StoreProvider>
+        <MenuIcon />
+      </StoreProvider>
     </nav>
   )
 }
