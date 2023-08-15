@@ -20,5 +20,5 @@ const layoutSlice = createSlice({
   },
 })
 
-export const { setMobileNavOpen } = layoutSlice.actions
+export const { actions: layoutSliceActions } = layoutSlice
 export default layoutSlice.reducer
