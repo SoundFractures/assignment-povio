@@ -1,19 +1,50 @@
 @use '../base/colors' as colors;
 @use '../abstracts/utils' as utils;
+@use '../abstracts/variables' as variables;
 @use '../abstracts/mixins' as *;
 
-.navigation {
+.desktop-navigation {
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: 80px;
-  justify-content: space-between;
+  justify-content: flex-end;
 
-  padding: 20px 20px 20px 23px;
-
+  width: 606px;
+  // Note | Design is a bit scuffed here, not sure which gap to use,
+  // seems srot to set paddings to each link instead of using gap
+  gap: 30px;
   @include tablet {
-    box-shadow: 0px 15px 30px 0px rgba(0, 0, 0, 0.05);
-    padding: 25px 28px 25px 21px;
+    display: none;
+  }
+}
+
+.mobile-navigation {
+  display: none;
+  font-family: variables.$font-family-ubuntu;
+  font-weight: 500;
+  position: absolute;
+  background-color: colors.$color-white !important;
+  width: 100%;
+  height: 100%;
+  gap: 50px;
+  padding: 30px;
+  z-index: 1;
+
+  @include tablet() {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+}
+
+.desktop-navigation,
+.mobile-navigation {
+  li {
+    color: colors.$color-text-lighten-1;
+    font-size: utils.pxToRem(14);
+    font-weight: 500;
+    line-height: utils.pxToRem(14); /* 100% */
   }
 }
 
@@ -31,29 +62,7 @@
   line-height: utils.pxToRem(14);
 }
 
-.navigation-links {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-end;
-
-  width: 606px;
-  // Note | Design is a bit scuffed here, not sure which gap to use,
-  // seems srot to set paddings to each link instead of using gap
-  gap: 30px;
-  li {
-    display: inline;
-    color: colors.$color-text-lighten-1;
-    font-size: utils.pxToRem(14);
-    font-weight: 500;
-    line-height: utils.pxToRem(14); /* 100% */
-  }
-
-  @include tablet {
-    display: none;
-  }
-}
-.navigation-links-button {
+.navigation-button {
   border-radius: 50px;
   background: linear-gradient(270deg, #ecbcb3 0%, #eaa79e 100%);
   box-shadow: 0px 15px 20px 0px rgba(234, 168, 159, 0.2);
