@@ -6,6 +6,7 @@ import { notFound } from 'next/navigation'
 import Appbar from '~/components/appbar'
 import NavigationMobile from '~/components/navigation/Mobile'
 import StoreProvider from '~/components/StoreProvider'
+import Auth from '~/components/auth'
 
 export const metadata: Metadata = {
   title: 'Povio - Assignment',
@@ -39,8 +40,8 @@ const RootLayout = async ({
             <StoreProvider>
               <Appbar />
               <NavigationMobile />
-
               {children}
+              <Auth />
             </StoreProvider>
           </NextIntlClientProvider>
         </main>

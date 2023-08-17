@@ -7,10 +7,10 @@ import { useTranslations } from 'next-intl'
 
 import { Pages } from '~/enums'
 import Navigation from '~/components/navigation'
-import MenuIcon from '~/components/navigation/MenuIcon'
+import IconButton from '~/components/shared/IconButton'
 import useStore from '~/services/useStore'
 
-export default function Appbar() {
+const Appbar = () => {
   const t = useTranslations('navigation')
 
   const { actions, useStoreDispatch, useStoreSelector } = useStore()
@@ -20,16 +20,15 @@ export default function Appbar() {
   const isMobileNavOpen = useStoreSelector(
     (state) => state.layout.isMobileNavOpen,
   )
-  // Note | This could be done with on route change
-  const handleSetMobileNavOpen = () => {
-    if (isMobileNavOpen) dispatch(actions.layout.setMobileNavOpen(false))
+  const handleSetMobileNavOpen = (value: boolean) => {
+    dispatch(actions.layout.setMobileNavOpen(value))
   }
   return (
     <nav className="appbar">
       <Link
         href={Pages.Home}
         className="navigation-logo"
-        onClick={handleSetMobileNavOpen}
+        onClick={() => handleSetMobileNavOpen(false)}
       >
         <Image
           src="/assets/images/flowrspot_logo.svg"
@@ -39,8 +38,15 @@ export default function Appbar() {
         />
         <span className="navigation-logo-title">{t('title')}</span>
       </Link>
-      <Navigation className="desktop-navigation" />
-      <MenuIcon />
+      <Navigation mobile={false} />
+      <div className="navigation-hamburger">
+        <IconButton
+          icon={isMobileNavOpen ? 'close' : 'menu'}
+          onClick={() => handleSetMobileNavOpen(!isMobileNavOpen)}
+        />
+      </div>
     </nav>
   )
 }
+
+export default Appbar
