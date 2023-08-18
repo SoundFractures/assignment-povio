@@ -20,7 +20,6 @@ const layoutSlice = createSlice({
   reducers: {
     setMobileNavOpen(state, action: PayloadAction<boolean>) {
       state.isMobileNavOpen = action.payload
-      console.log('setMobileNavOpen', state.isMobileNavOpen)
       if (state.isLoginModalOpen) {
         state.isLoginModalOpen = false
       }

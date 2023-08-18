@@ -32,15 +32,12 @@ const Navigation = ({ mobile }: { mobile: boolean }) => {
     dispatch(actions.layout.setRegisterModalOpen(true))
   }
 
-  // useEffect(() => {
-  //   document.body.style.overflow = 'hidden'
-
-  //   return (): void => {
-  //     console.log(123)
-  //     document.body.style.overflow = 'unset'
-  //   }
-  // lEFT OF HERE
-  // }, [isMobileNavOpen])
+  useEffect(() => {
+    if (isMobileNavOpen) document.body.style.overflow = 'hidden'
+    return (): void => {
+      document.body.style.overflow = 'unset'
+    }
+  }, [isMobileNavOpen])
 
   return (
     <ul className={mobile ? 'mobile-navigation' : 'desktop-navigation'}>
