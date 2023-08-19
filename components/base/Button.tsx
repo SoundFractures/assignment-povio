@@ -25,8 +25,9 @@ const BaseButton = ({
       className={buttonClassName}
       type={!submit ? 'button' : 'submit'}
       onClick={onClick}
+      disabled={disabled}
     >
-      {text}
+      {loading ? <div className="base-loader" /> : text}
     </button>
   )
 }
@@ -35,6 +36,7 @@ BaseButton.defaultProps = {
   submit: false,
   loading: false,
   disabled: false,
+  className: '',
 }
 
 export default BaseButton
