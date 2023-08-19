@@ -19,3 +19,28 @@
 .text-text {
   color: colors.$color-text;
 }
+
+// Form styles
+.form-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.mt-5 {
+  margin-top: 20px;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}

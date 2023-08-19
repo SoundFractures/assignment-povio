@@ -1,0 +1,82 @@
+@use '../base/colors' as colors;
+@use '../abstracts/variables' as variables;
+@use '../abstracts/utils' as utils;
+@use '../abstracts/mixins' as *;
+
+// TEXTFIELD
+.base-text-field {
+  height: 50px;
+  margin-bottom: 10px;
+  border-radius: variables.$base-border-radius;
+  border: 1px solid colors.$color-border;
+  background: colors.$color-text-field-bg;
+}
+
+.base-text-field-content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  margin: 11px 15px;
+}
+// TODO | Typography
+.base-text-field-input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: colors.$color-text;
+  font-family: variables.$font-family-ubuntu;
+  font-size: utils.pxToRem(13);
+  font-style: normal;
+  font-weight: 400;
+  line-height: utils.pxToRem(13);
+  padding: 0px;
+}
+// TODO | Typography
+.base-text-field-label {
+  pointer-events: none;
+  color: #949ea0;
+  font-family: variables.$font-family-ubuntu;
+  font-size: utils.pxToRem(10);
+  font-style: normal;
+  font-weight: 400;
+  line-height: utils.pxToRem(10);
+}
+
+// BUTTON
+.base-button {
+  height: 50px;
+  flex-shrink: 0;
+  border-radius: variables.$base-border-radius;
+  background: variables.$base-gradient-background;
+  box-shadow: variables.$base-box-shadow;
+  border: none;
+
+  color: colors.$color-white;
+
+  // TODO | Typography
+  text-align: center;
+  font-family: variables.$font-family-ubuntu;
+  font-size: utils.pxToRem(14);
+  font-style: normal;
+  font-weight: 500;
+  line-height: utils.pxToRem(14);
+}
+
+.login-caption {
+  display: none;
+
+  color: colors.$color-grey;
+  text-align: center;
+  font-family: Ubuntu;
+  font-size: utils.pxToRem(13);
+  font-style: normal;
+  font-weight: 400;
+  line-height: utils.pxToRem(13);
+
+  @include mobile() {
+    display: block;
+  }
+}
