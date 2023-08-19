@@ -8,6 +8,7 @@ type Props = {
   onChange: React.Dispatch<React.SetStateAction<string>>
   htmlFor: string
   className?: string
+  type?: 'text' | 'password'
 }
 
 const BaseTextField = ({
@@ -16,6 +17,7 @@ const BaseTextField = ({
   label,
   htmlFor,
   className,
+  type,
 }: Props) => {
   const textFieldClassName = `base-text-field ${className}`
 
@@ -27,7 +29,7 @@ const BaseTextField = ({
         </label>
         <input
           id={htmlFor}
-          type="text"
+          type={type}
           value={value}
           className="base-text-field-input"
           onChange={(event) => onChange(event.target.value)}
@@ -39,6 +41,7 @@ const BaseTextField = ({
 
 BaseTextField.defaultProps = {
   className: '',
+  type: 'text',
 }
 
 export default BaseTextField
