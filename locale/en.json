@@ -14,24 +14,22 @@
     "subtitle": "Explore between more than {count} sightings"
   },
   "auth": {
+    "form": {
+      "firstName": "First name",
+      "lastName": "Last name",
+      "dateOfBirth": "Date of Birth",
+      "emailAddress": "Email address",
+      "password": "Password"
+    },
     "login": {
       "title": "Welcome Back",
-      "form": {
-        "emailAddress": "Email address",
-        "password": "Password",
-        "submit": "Login to your Account"
-      }
+      "submit": "Login to your Account",
+      "cancel": "I don't wan't to Login"
     },
     "register": {
       "title": "Create new Account",
-      "form": {
-        "firstName": "First name",
-        "lastName": "Last name",
-        "dateOfBirth": "Date of Birth",
-        "emailAddress": "Email address",
-        "password": "Password",
-        "submit": "Create Account"
-      }
+      "submit": "Create Account",
+      "cancel": "I don't wan't to Register"
     }
   }
 }
