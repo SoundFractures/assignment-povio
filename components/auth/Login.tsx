@@ -1,16 +1,17 @@
 'use client'
 
 import React from 'react'
-// import { useTranslations } from 'next-intl'
 import { useTranslations } from 'next-intl'
 import useStore from '~/services/useStore'
 import Modal from '~/components/shared/Modal'
 import TextField from '~/components/base/TextField'
 import Button from '~/components/base/Button'
+import AuthCancel from '~/components/auth/AuthCancel'
 
 const AuthLogin = () => {
-  const [email, setEmail] = React.useState('')
   const t = useTranslations('auth')
+
+  // Modal config
   const { useStoreSelector, actions, useStoreDispatch } = useStore()
 
   // TODO | MobileNav composable
@@ -22,52 +23,39 @@ const AuthLogin = () => {
   const handleSetLoginModalClose = () => {
     dispatch(actions.layout.setLoginModalOpen(false))
   }
+
+  // Form state
+  const [email, setEmail] = React.useState('')
+
   return (
     <Modal
       isOpen={isLoginModalOpen}
       handleClose={handleSetLoginModalClose}
-      title={t('register.title')}
+      title={t('login.title')}
     >
-      <div className="form-row">
+      <form>
         <TextField
           value={email}
           onChange={setEmail}
-          label={t('register.form.firstName')}
-          htmlFor="firstName"
-          className="flex-grow"
-        />
-        <TextField
-          value={email}
-          onChange={setEmail}
-          label={t('register.form.lastName')}
+          label={t('form.lastName')}
           htmlFor="lastName"
-          className="flex-grow"
         />
-      </div>
-      <TextField
-        value={email}
-        onChange={setEmail}
-        label={t('register.form.dateOfBirth')}
-        htmlFor="email"
-      />
-      <TextField
-        value={email}
-        onChange={setEmail}
-        label={t('register.form.emailAddress')}
-        htmlFor="email"
-      />
-      <TextField
-        value={email}
-        onChange={setEmail}
-        label={t('register.form.password')}
-        htmlFor="email"
-      />
-      <Button
-        text={t('register.form.submit')}
-        onClick={() => {}}
-        className="w-100 mt-5"
-      />
-      <span className="auth-caption">I dont wan't to register</span>
+
+        <TextField
+          value={email}
+          onChange={setEmail}
+          label={t('form.password')}
+          htmlFor="email"
+        />
+        <Button
+          text={t('login.submit')}
+          onClick={() => {}}
+          className="w-100 mt-5"
+        />
+      </form>
+      <AuthCancel onClick={handleSetLoginModalClose}>
+        {t('login.cancel')}
+      </AuthCancel>
     </Modal>
   )
 }
