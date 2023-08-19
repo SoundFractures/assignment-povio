@@ -3,11 +3,13 @@
 import { useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { signIn } from 'next-auth/react'
+import { useFormik } from 'formik'
 import useStore from '~/services/useStore'
 import Modal from '~/components/shared/Modal'
 import TextField from '~/components/base/TextField'
 import Button from '~/components/base/Button'
 import AuthCancel from '~/components/auth/AuthCancel'
+import { loginSchema } from '~/utils/validation'
 
 const AuthLogin = () => {
   const t = useTranslations('auth')
@@ -25,34 +27,40 @@ const AuthLogin = () => {
     dispatch(actions.layout.setLoginModalOpen(false))
   }
 
-  // Form state
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-
-  const isFormValid = () => email.length > 0 && password.length > 0
+  // Form state and validation
+  const [loading, setLoading] = useState(false)
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      password: '',
+    },
+    validationSchema: loginSchema(useTranslations('validation')),
+    onSubmit: (values) => {
+      console.log(JSON.stringify(values, null, 2))
+    },
+  })
 
   // Login
-  const [loading, setLoading] = useState(false)
-  const handleLogin = async (e) => {
-    e.preventDefault()
-    setLoading(true)
-    await signIn('credentials', { email, password, redirect: false })
-      .then((res) => {
-        console.log(res)
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-      .finally(() => {
-        setLoading(false)
-      })
-    // await fetch('https://flowrspot-api.herokuapp.com/api/v1/users/login', {
-    //   method: 'POST',
-    //   body: JSON.stringify({ email, password }),
-    // }).finally(() => {
-    //   setLoading(false)
-    // })
-  }
+  // const handleLogin = async (e) => {
+  // e.preventDefault()
+  // setLoading(true)
+  // await signIn('credentials', { email, password, redirect: false })
+  //   .then((res) => {
+  //     console.log(res)
+  //   })
+  //   .catch((err) => {
+  //     console.log(err)
+  //   })
+  //   .finally(() => {
+  //     setLoading(false)
+  //   })
+  // await fetch('https://flowrspot-api.herokuapp.com/api/v1/users/login', {
+  //   method: 'POST',
+  //   body: JSON.stringify({ email, password }),
+  // }).finally(() => {
+  //   setLoading(false)
+  // })
+  // }
 
   return (
     <Modal
@@ -60,24 +68,27 @@ const AuthLogin = () => {
       handleClose={handleSetLoginModalClose}
       title={t('login.title')}
     >
-      <form onSubmit={handleLogin}>
+      <form onSubmit={formik.handleSubmit}>
         <TextField
-          value={email}
-          onChange={setEmail}
+          value={formik.values.email}
+          onChange={(value) => formik.setFieldValue('email', value)}
+          onBlur={formik.handleBlur}
           label={t('form.emailAddress')}
-          htmlFor="email"
+          id="email"
+          error={formik.errors.email}
         />
 
         <TextField
-          value={password}
-          onChange={setPassword}
+          value={formik.values.password}
+          onChange={(value) => formik.setFieldValue('password', value)}
+          onBlur={formik.handleBlur}
           label={t('form.password')}
-          htmlFor="password"
+          id="password"
           type="password"
+          error={formik.errors.password}
         />
         <Button
           text={t('login.submit')}
-          disabled={!isFormValid()}
           submit
           loading={loading}
           className="w-100 mt-5"

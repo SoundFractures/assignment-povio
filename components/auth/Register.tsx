@@ -55,14 +55,14 @@ const AuthRegister = () => {
           value={firstName}
           onChange={setFirstName}
           label={t('form.firstName')}
-          htmlFor="firstName"
+          id="firstName"
           className="flex-grow"
         />
         <TextField
           value={lastName}
           onChange={setLastName}
           label={t('form.lastName')}
-          htmlFor="lastName"
+          id="lastName"
           className="flex-grow"
         />
       </div>
@@ -70,19 +70,19 @@ const AuthRegister = () => {
         value={dateOfBirth}
         onChange={setDateOfBirth}
         label={t('form.dateOfBirth')}
-        htmlFor="dateOfBirth"
+        id="dateOfBirth"
       />
       <TextField
         value={email}
         onChange={setEmail}
         label={t('form.emailAddress')}
-        htmlFor="emailAddress"
+        id="emailAddress"
       />
       <TextField
         value={password}
         onChange={setPassword}
         label={t('form.password')}
-        htmlFor="password"
+        id="password"
         type="password"
       />
       <Button
