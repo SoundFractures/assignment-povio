@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useTranslations } from 'next-intl'
+import { signIn } from 'next-auth/react'
 import useStore from '~/services/useStore'
 import Modal from '~/components/shared/Modal'
 import TextField from '~/components/base/TextField'
@@ -28,17 +29,42 @@ const AuthLogin = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
+  const isFormValid = () => email.length > 0 && password.length > 0
+
+  // Login
+  const [loading, setLoading] = useState(false)
+  const handleLogin = async (e) => {
+    e.preventDefault()
+    setLoading(true)
+    await signIn('credentials', { email, password, redirect: false })
+      .then((res) => {
+        console.log(res)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+      .finally(() => {
+        setLoading(false)
+      })
+    // await fetch('https://flowrspot-api.herokuapp.com/api/v1/users/login', {
+    //   method: 'POST',
+    //   body: JSON.stringify({ email, password }),
+    // }).finally(() => {
+    //   setLoading(false)
+    // })
+  }
+
   return (
     <Modal
       isOpen={isLoginModalOpen}
       handleClose={handleSetLoginModalClose}
       title={t('login.title')}
     >
-      <form>
+      <form onSubmit={handleLogin}>
         <TextField
           value={email}
           onChange={setEmail}
-          label={t('form.email')}
+          label={t('form.emailAddress')}
           htmlFor="email"
         />
 
@@ -47,10 +73,13 @@ const AuthLogin = () => {
           onChange={setPassword}
           label={t('form.password')}
           htmlFor="password"
+          type="password"
         />
         <Button
           text={t('login.submit')}
-          onClick={() => {}}
+          disabled={!isFormValid()}
+          submit
+          loading={loading}
           className="w-100 mt-5"
         />
       </form>
