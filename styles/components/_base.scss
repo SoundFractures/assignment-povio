@@ -12,6 +12,10 @@
   background: colors.$color-text-field-bg;
 }
 
+.base-error-text-field {
+  border: 1px solid colors.$color-error-lighten-1;
+}
+
 .base-text-field-content {
   display: flex;
   flex-direction: column;
@@ -44,6 +48,16 @@
   font-weight: 400;
   line-height: utils.pxToRem(10);
   pointer-events: auto;
+}
+
+.base-text-field-error-caption {
+  color: colors.$color-error;
+  font-family: variables.$font-family-ubuntu;
+  font-size: utils.pxToRem(10);
+  font-style: normal;
+  font-weight: 200;
+  line-height: utils.pxToRem(10);
+  margin-bottom: 10px;
 }
 
 // BUTTON
