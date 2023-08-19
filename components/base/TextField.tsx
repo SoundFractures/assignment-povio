@@ -8,9 +8,9 @@ type Props = {
   value: string
   onChange: React.Dispatch<React.SetStateAction<string>>
   onBlur?: React.Dispatch<React.SetStateAction<string>>
-  className?: string
   type?: 'text' | 'password'
-  error?: string
+  error?: boolean
+  errorText?: string
 }
 
 const BaseTextField = ({
@@ -19,17 +19,16 @@ const BaseTextField = ({
   onChange,
   onBlur = () => {},
   label,
-  className = '',
   type = 'text',
-  error = '',
+  error = false,
+  errorText = '',
 }: Props) => {
-  const isError = error.length > 0
-  const textFieldClassName = `base-text-field ${className} ${
-    isError ? 'base-error-text-field' : ''
+  const textFieldClassName = `base-text-field ${
+    error ? 'base-error-text-field' : ''
   }`
 
   return (
-    <div>
+    <div className="base-text-field-container">
       <div className={textFieldClassName}>
         <div className="base-text-field-content">
           <label htmlFor={id} className="base-text-field-label">
@@ -41,12 +40,15 @@ const BaseTextField = ({
             type={type}
             value={value}
             className="base-text-field-input"
+            aria-label={label}
             onChange={(event) => onChange(event.target.value)}
             onBlur={(event) => onBlur(event.target.value)}
           />
         </div>
       </div>
-      {isError && <div className="base-text-field-error-caption">{error}</div>}
+      {error && (
+        <div className="base-text-field-error-caption">{errorText}</div>
+      )}
     </div>
   )
 }
