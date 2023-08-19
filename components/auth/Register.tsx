@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import { useState } from 'react'
 import { useTranslations } from 'next-intl'
 import useStore from '~/services/useStore'
 import Modal from '~/components/shared/Modal'
@@ -23,8 +23,27 @@ const AuthRegister = () => {
     dispatch(actions.layout.setRegisterModalOpen(false))
   }
   // Form state
-  const [email, setEmail] = React.useState('')
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
+  const [dateOfBirth, setDateOfBirth] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
+  const isFormValid = () =>
+    firstName.length > 0 &&
+    lastName.length > 0 &&
+    dateOfBirth.length > 0 &&
+    email.length > 0 &&
+    password.length > 0
+
+  const [loading, setLoading] = useState(false)
+
+  const handleRegister = () => {
+    setLoading(true)
+    setTimeout(() => {
+      setLoading(false)
+    }, 2000)
+  }
   return (
     <Modal
       isOpen={isRegisterModalOpen}
@@ -33,42 +52,45 @@ const AuthRegister = () => {
     >
       <div className="form-row">
         <TextField
-          value={email}
-          onChange={setEmail}
+          value={firstName}
+          onChange={setFirstName}
           label={t('form.firstName')}
           htmlFor="firstName"
           className="flex-grow"
         />
         <TextField
-          value={email}
-          onChange={setEmail}
+          value={lastName}
+          onChange={setLastName}
           label={t('form.lastName')}
           htmlFor="lastName"
           className="flex-grow"
         />
       </div>
       <TextField
-        value={email}
-        onChange={setEmail}
+        value={dateOfBirth}
+        onChange={setDateOfBirth}
         label={t('form.dateOfBirth')}
-        htmlFor="email"
+        htmlFor="dateOfBirth"
       />
       <TextField
         value={email}
         onChange={setEmail}
         label={t('form.emailAddress')}
-        htmlFor="email"
+        htmlFor="emailAddress"
       />
       <TextField
-        value={email}
-        onChange={setEmail}
+        value={password}
+        onChange={setPassword}
         label={t('form.password')}
-        htmlFor="email"
+        htmlFor="password"
+        type="password"
       />
       <Button
         text={t('register.submit')}
-        onClick={() => {}}
         className="w-100 mt-5"
+        loading={loading}
+        disabled={!isFormValid()}
+        onClick={handleRegister}
       />
 
       <AuthCancel onClick={handleSetRegisterModalClose}>
