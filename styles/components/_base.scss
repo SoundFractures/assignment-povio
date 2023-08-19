@@ -64,19 +64,3 @@
   font-weight: 500;
   line-height: utils.pxToRem(14);
 }
-
-.login-caption {
-  display: none;
-
-  color: colors.$color-grey;
-  text-align: center;
-  font-family: Ubuntu;
-  font-size: utils.pxToRem(13);
-  font-style: normal;
-  font-weight: 400;
-  line-height: utils.pxToRem(13);
-
-  @include mobile() {
-    display: block;
-  }
-}
