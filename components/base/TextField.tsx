@@ -6,6 +6,7 @@ type Props = {
   label: string
   value: string
   onChange: React.Dispatch<React.SetStateAction<string>>
+  onBlur?: React.Dispatch<React.SetStateAction<string>>
   htmlFor: string
   className?: string
   type?: 'text' | 'password'
@@ -14,6 +15,7 @@ type Props = {
 const BaseTextField = ({
   value,
   onChange,
+  onBlur = () => {},
   label,
   htmlFor,
   className = '',
@@ -33,6 +35,7 @@ const BaseTextField = ({
           value={value}
           className="base-text-field-input"
           onChange={(event) => onChange(event.target.value)}
+          onBlur={(event) => onBlur(event.target.value)}
         />
       </div>
     </div>
