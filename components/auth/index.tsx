@@ -5,6 +5,7 @@ import React from 'react'
 import useStore from '~/services/useStore'
 
 import AuthLogin from '~/components/auth/Login'
+import AuthRegister from '~/components/auth/Register'
 
 const Auth = () => {
   const { useStoreSelector } = useStore()
@@ -13,6 +14,15 @@ const Auth = () => {
     (state) => state.layout.isLoginModalOpen,
   )
 
-  return <div>{isLoginModalOpen && <AuthLogin />}</div>
+  const isRegisterModalOpen = useStoreSelector(
+    (state) => state.layout.isRegisterModalOpen,
+  )
+
+  return (
+    <div>
+      {isLoginModalOpen && <AuthLogin />}
+      {isRegisterModalOpen && <AuthRegister />}
+    </div>
+  )
 }
 export default Auth
