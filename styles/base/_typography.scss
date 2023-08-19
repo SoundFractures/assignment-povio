@@ -16,23 +16,3 @@ nav {
   font-family: variables.$font-family-montserrat;
   font-weight: 300;
 }
-
-.text-hero {
-  color: colors.$color-text;
-  text-align: center;
-  font-size: utils.pxToRem(48);
-  font-style: normal;
-  font-weight: 600;
-  line-height: utils.pxToRem(40);
-
-  // @include tablet {
-  //   font-size: utils.pxToRem(21);
-  //   line-height: utils.pxToRem(26);
-  //   color: blue;
-  // }
-  // @include mobile {
-  //   font-size: utils.pxToRem(12);
-  //   line-height: utils.pxToRem(10);
-  //   color: red;
-  // }
-}
