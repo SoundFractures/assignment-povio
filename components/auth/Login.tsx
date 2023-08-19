@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import { useState } from 'react'
 import { useTranslations } from 'next-intl'
 import useStore from '~/services/useStore'
 import Modal from '~/components/shared/Modal'
@@ -25,7 +25,8 @@ const AuthLogin = () => {
   }
 
   // Form state
-  const [email, setEmail] = React.useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
   return (
     <Modal
@@ -37,15 +38,15 @@ const AuthLogin = () => {
         <TextField
           value={email}
           onChange={setEmail}
-          label={t('form.lastName')}
-          htmlFor="lastName"
+          label={t('form.email')}
+          htmlFor="email"
         />
 
         <TextField
-          value={email}
-          onChange={setEmail}
+          value={password}
+          onChange={setPassword}
           label={t('form.password')}
-          htmlFor="email"
+          htmlFor="password"
         />
         <Button
           text={t('login.submit')}
