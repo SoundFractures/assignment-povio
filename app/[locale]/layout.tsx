@@ -5,8 +5,8 @@ import { NextIntlClientProvider } from 'next-intl'
 import { notFound } from 'next/navigation'
 import Appbar from '~/components/appbar'
 import NavigationMobile from '~/components/navigation/Mobile'
-import StoreProvider from '~/components/StoreProvider'
 import Auth from '~/components/auth'
+import Providers from '~/components/Providers'
 
 export const metadata: Metadata = {
   title: 'Povio - Assignment',
@@ -34,15 +34,15 @@ const RootLayout = async ({
   }
   return (
     <html lang="en">
-      <body>
+      <body suppressHydrationWarning>
         <main>
           <NextIntlClientProvider locale={locale} messages={messages}>
-            <StoreProvider>
+            <Providers>
               <Appbar />
               <NavigationMobile />
               {children}
               <Auth />
-            </StoreProvider>
+            </Providers>
           </NextIntlClientProvider>
         </main>
       </body>
