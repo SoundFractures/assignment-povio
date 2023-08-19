@@ -36,8 +36,8 @@ const AuthRegister = () => {
     email.length > 0 &&
     password.length > 0
 
+  // Register
   const [loading, setLoading] = useState(false)
-
   const handleRegister = () => {
     setLoading(true)
     setTimeout(() => {
