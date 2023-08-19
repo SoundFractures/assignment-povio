@@ -2,7 +2,8 @@
   "validation": {
     "required": "This field is required",
     "email": "Please enter a valid Email Address",
-    "password": "Password must be at least 8 characters long"
+    "password": "Password must be at least 8 characters long",
+    "date": "Please enter a valid Date of Birth in a format DD.MM.YYYY"
   },
   "navigation": {
     "title": "FlowrSpot",
