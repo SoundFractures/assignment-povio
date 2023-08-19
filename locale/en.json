@@ -12,5 +12,26 @@
   "home": {
     "title": "Discover flowers around you",
     "subtitle": "Explore between more than {count} sightings"
+  },
+  "auth": {
+    "login": {
+      "title": "Welcome Back",
+      "form": {
+        "emailAddress": "Email address",
+        "password": "Password",
+        "submit": "Login to your Account"
+      }
+    },
+    "register": {
+      "title": "Create new Account",
+      "form": {
+        "firstName": "First name",
+        "lastName": "Last name",
+        "dateOfBirth": "Date of Birth",
+        "emailAddress": "Email address",
+        "password": "Password",
+        "submit": "Create Account"
+      }
+    }
   }
 }
