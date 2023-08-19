@@ -4,6 +4,13 @@
 @use '../abstracts/mixins' as *;
 
 // TEXTFIELD
+.base-text-field-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex-grow: 1;
+}
+
 .base-text-field {
   height: 50px;
   margin-bottom: 10px;
@@ -38,6 +45,7 @@
   line-height: utils.pxToRem(13);
   padding: 0px;
 }
+
 // TODO | Typography
 .base-text-field-label {
   pointer-events: none;
