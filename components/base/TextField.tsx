@@ -16,8 +16,8 @@ const BaseTextField = ({
   onChange,
   label,
   htmlFor,
-  className,
-  type,
+  className = '',
+  type = 'text',
 }: Props) => {
   const textFieldClassName = `base-text-field ${className}`
 
@@ -37,11 +37,6 @@ const BaseTextField = ({
       </div>
     </div>
   )
-}
-
-BaseTextField.defaultProps = {
-  className: '',
-  type: 'text',
 }
 
 export default BaseTextField

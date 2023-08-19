@@ -7,17 +7,17 @@ type Props = {
   loading?: boolean
   disabled?: boolean
   submit?: boolean
-  onClick: () => void
+  onClick?: () => void
   className?: string
 }
 
 const BaseButton = ({
   text,
-  loading,
-  disabled,
-  onClick,
-  submit,
-  className,
+  loading = false,
+  disabled = false,
+  onClick = () => {},
+  submit = false,
+  className = '',
 }: Props) => {
   const buttonClassName = `base-button ${className}`
   return (
@@ -30,13 +30,6 @@ const BaseButton = ({
       {loading ? <div className="base-loader" /> : text}
     </button>
   )
-}
-
-BaseButton.defaultProps = {
-  submit: false,
-  loading: false,
-  disabled: false,
-  className: '',
 }
 
 export default BaseButton
