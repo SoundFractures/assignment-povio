@@ -6,8 +6,8 @@ type Props = {
   text: string
 }
 
-const BaseButton = ({ text }: Props) => (
+const ErrorText = ({ text }: Props) => (
   <span className="base-error-text">{text}</span>
 )
 
-export default BaseButton
+export default ErrorText

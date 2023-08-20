@@ -42,10 +42,10 @@ const RootLayout = async ({
             <Providers>
               <Appbar />
 
+              <NavigationMobile />
               {children}
 
               {/* DIALOGS */}
-              <NavigationMobile />
               <Auth />
               <Profile />
             </Providers>
