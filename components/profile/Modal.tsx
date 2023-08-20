@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { signOut, useSession } from 'next-auth/react'
 import Image from 'next/image'
+import dayjs from 'dayjs'
 import useStore from '~/services/useStore'
 import Modal from '~/components/shared/Modal'
 import InfoBox from '~/components/profile/InfoBox'
@@ -35,6 +36,10 @@ const ProfileModal = () => {
   })
 
   const fullName = `${profile.first_name} ${profile.last_name}`
+
+  // Note: This is a mock date, the API does not return the date of birth
+  const returnFormattedDate = dayjs('1980-5-20').format('MMM DD, YYYY')
+
   const [loading, setLoading] = useState(false)
   const handleGetProfile = async () => {
     setLoading(true)
@@ -82,8 +87,7 @@ const ProfileModal = () => {
           <section className="profile-info">
             <InfoBox label={t('firstName')} text={profile.first_name} />
             <InfoBox label={t('lastName')} text={profile.last_name} />
-            {/* TODO |bring in day js */}
-            <InfoBox label={t('dateOfBirth')} text="16. 5. 2021" />
+            <InfoBox label={t('dateOfBirth')} text={returnFormattedDate} />
             <InfoBox label={t('email')} text="notInApi@gmail.com" />
           </section>
 
