@@ -4,6 +4,7 @@ import React, { useEffect } from 'react'
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
 import { useSession } from 'next-auth/react'
+import Image from 'next/image'
 import useStore from '~/services/useStore'
 import { Pages } from '~/enums'
 
@@ -97,7 +98,13 @@ const Navigation = ({ mobile }: { mobile: boolean }) => {
           onClick={handleSetProfileModalOpen}
         >
           {session.user?.name || ''}
-          <div className="navigation-profile-avatar" />
+
+          <Image
+            src="/assets/images/profile-picture-menu.png"
+            alt="Profile Logo"
+            width={40}
+            height={40}
+          />
         </button>
       )}
     </ul>
