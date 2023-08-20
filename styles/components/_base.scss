@@ -114,3 +114,18 @@
     transform: rotate(360deg);
   }
 }
+
+// TODO | Typography
+.base-error-text {
+  color: colors.$color-error;
+  font-family: variables.$font-family-ubuntu;
+  font-size: utils.pxToRem(13);
+  font-style: normal;
+  font-weight: 400;
+  line-height: utils.pxToRem(13);
+  margin-bottom: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
