@@ -7,6 +7,7 @@ interface Props {
   title?: string
   handleClose: () => void
   disabled?: boolean
+  className?: string
 }
 
 const Modal = ({
@@ -15,6 +16,7 @@ const Modal = ({
   handleClose,
   title = '',
   disabled = false,
+  className = '',
 }: Props) => {
   useEffect(() => {
     document.body.style.overflow = 'hidden'
@@ -24,9 +26,10 @@ const Modal = ({
   }, [isOpen])
   if (!isOpen) return null
 
+  const modalClassName = `modal-content ${className}`
   return (
     <div className="modal">
-      <div className="modal-content">
+      <div className={modalClassName}>
         <section className="modal-top">
           <IconButton icon="close" onClick={handleClose} disabled={disabled} />
         </section>

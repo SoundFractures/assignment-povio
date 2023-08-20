@@ -28,6 +28,9 @@ const layoutSlice = createSlice({
       if (state.isRegisterModalOpen) {
         state.isRegisterModalOpen = false
       }
+      if (state.isProfileModalOpen) {
+        state.isProfileModalOpen = false
+      }
     },
     setLoginModalOpen(state, action: PayloadAction<boolean>) {
       state.isLoginModalOpen = action.payload

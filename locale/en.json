@@ -47,6 +47,8 @@
     "lastName": "Last name",
     "dateOfBirth": "Date of Birth",
     "email": "Email Address",
-    "password": "Password"
+    "password": "Password",
+    "sightings": "{count} sightings",
+    "logout": "Logout"
   }
 }

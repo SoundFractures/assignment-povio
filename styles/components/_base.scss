@@ -115,6 +115,11 @@
   }
 }
 
+.base-loader-black:after {
+  border: 2px solid colors.$color-black !important;
+  border-color: colors.$color-black transparent colors.$color-black transparent !important;
+}
+
 // TODO | Typography
 .base-error-text {
   color: colors.$color-error;
