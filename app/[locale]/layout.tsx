@@ -6,6 +6,7 @@ import { notFound } from 'next/navigation'
 import Appbar from '~/components/appbar'
 import NavigationMobile from '~/components/navigation/Mobile'
 import Auth from '~/components/auth'
+import Profile from '~/components/profile'
 import Providers from '~/components/Providers'
 
 export const metadata: Metadata = {
@@ -17,6 +18,7 @@ export function generateStaticParams() {
   return [{ locale: 'en' }]
 }
 
+// TODO | Loading state for auth loading
 const RootLayout = async ({
   children,
   params: { locale },
@@ -39,9 +41,13 @@ const RootLayout = async ({
           <NextIntlClientProvider locale={locale} messages={messages}>
             <Providers>
               <Appbar />
-              <NavigationMobile />
+
               {children}
+
+              {/* DIALOGS */}
+              <NavigationMobile />
               <Auth />
+              <Profile />
             </Providers>
           </NextIntlClientProvider>
         </main>

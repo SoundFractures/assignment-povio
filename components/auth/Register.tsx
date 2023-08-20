@@ -10,8 +10,9 @@ import Button from '~/components/base/Button'
 import AuthCancel from '~/components/auth/AuthCancel'
 import { registerSchema } from '~/utils/validation'
 
-const AuthRegister = () => {
-  const t = useTranslations('auth')
+const AuthRegisterModal = () => {
+  const tAuth = useTranslations('auth')
+  const tProfile = useTranslations('profile')
   // Modal config
   const { useStoreSelector, actions, useStoreDispatch } = useStore()
 
@@ -46,12 +47,12 @@ const AuthRegister = () => {
     <Modal
       isOpen={isRegisterModalOpen}
       handleClose={handleSetRegisterModalClose}
-      title={t('register.title')}
+      title={tAuth('register.title')}
     >
       <div className="form-row">
         <TextField
           value={formik.values.firstName}
-          label={t('form.firstName')}
+          label={tProfile('firstName')}
           id="firstName"
           error={!!formik.errors.firstName && formik.touched.firstName}
           errorText={formik.errors.firstName}
@@ -60,7 +61,7 @@ const AuthRegister = () => {
         />
         <TextField
           value={formik.values.lastName}
-          label={t('form.lastName')}
+          label={tProfile('lastName')}
           id="lastName"
           error={!!formik.errors.lastName && formik.touched.lastName}
           errorText={formik.errors.lastName}
@@ -70,7 +71,7 @@ const AuthRegister = () => {
       </div>
       <TextField
         value={formik.values.dateOfBirth}
-        label={t('form.dateOfBirth')}
+        label={tProfile('dateOfBirth')}
         id="dateOfBirth"
         error={!!formik.errors.dateOfBirth && formik.touched.dateOfBirth}
         errorText={formik.errors.dateOfBirth}
@@ -79,7 +80,7 @@ const AuthRegister = () => {
       />
       <TextField
         value={formik.values.email}
-        label={t('form.email')}
+        label={tProfile('email')}
         id="email"
         error={!!formik.errors.email && formik.touched.email}
         errorText={formik.errors.email}
@@ -88,7 +89,7 @@ const AuthRegister = () => {
       />
       <TextField
         value={formik.values.password}
-        label={t('form.password')}
+        label={tProfile('password')}
         id="password"
         type="password"
         error={!!formik.errors.password && formik.touched.password}
@@ -97,16 +98,16 @@ const AuthRegister = () => {
         onBlur={formik.handleBlur}
       />
       <Button
-        text={t('register.submit')}
+        text={tAuth('register.submit')}
         className="w-100 mt-5"
         loading={loading}
       />
 
       <AuthCancel onClick={handleSetRegisterModalClose}>
-        {t('register.cancel')}
+        {tAuth('register.cancel')}
       </AuthCancel>
     </Modal>
   )
 }
 
-export default AuthRegister
+export default AuthRegisterModal

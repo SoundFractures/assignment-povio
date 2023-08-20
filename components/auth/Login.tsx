@@ -11,8 +11,9 @@ import Button from '~/components/base/Button'
 import AuthCancel from '~/components/auth/AuthCancel'
 import { loginSchema } from '~/utils/validation'
 
-const AuthLogin = () => {
-  const t = useTranslations('auth')
+const AuthLoginModal = () => {
+  const tAuth = useTranslations('auth')
+  const tProfile = useTranslations('profile')
 
   // Modal config
   const { useStoreSelector, actions, useStoreDispatch } = useStore()
@@ -37,6 +38,7 @@ const AuthLogin = () => {
     validationSchema: loginSchema(useTranslations('validation')),
     onSubmit: async (values) => {
       setLoading(true)
+      // TODO | move to service and register
       await signIn('credentials', {
         email: values.email,
         password: values.password,
@@ -55,38 +57,16 @@ const AuthLogin = () => {
     },
   })
 
-  // Login
-  // const handleLogin = async (e) => {
-  // e.preventDefault()
-  // setLoading(true)
-  // await signIn('credentials', { email, password, redirect: false })
-  //   .then((res) => {
-  //     console.log(res)
-  //   })
-  //   .catch((err) => {
-  //     console.log(err)
-  //   })
-  //   .finally(() => {
-  //     setLoading(false)
-  //   })
-  // await fetch('https://flowrspot-api.herokuapp.com/api/v1/users/login', {
-  //   method: 'POST',
-  //   body: JSON.stringify({ email, password }),
-  // }).finally(() => {
-  //   setLoading(false)
-  // })
-  // }
-
   return (
     <Modal
       isOpen={isLoginModalOpen}
       handleClose={handleSetLoginModalClose}
-      title={t('login.title')}
+      title={tAuth('login.title')}
     >
       <form onSubmit={formik.handleSubmit}>
         <TextField
           value={formik.values.email}
-          label={t('form.email')}
+          label={tProfile('email')}
           id="email"
           error={!!formik.errors.email && formik.touched.email}
           errorText={formik.errors.email}
@@ -96,7 +76,7 @@ const AuthLogin = () => {
 
         <TextField
           value={formik.values.password}
-          label={t('form.password')}
+          label={tProfile('password')}
           id="password"
           type="password"
           error={!!formik.errors.password && formik.touched.password}
@@ -105,17 +85,17 @@ const AuthLogin = () => {
           onBlur={formik.handleBlur}
         />
         <Button
-          text={t('login.submit')}
+          text={tAuth('login.submit')}
           submit
           loading={loading}
           className="w-100 mt-5"
         />
       </form>
       <AuthCancel onClick={handleSetLoginModalClose}>
-        {t('login.cancel')}
+        {tAuth('login.cancel')}
       </AuthCancel>
     </Modal>
   )
 }
 
-export default AuthLogin
+export default AuthLoginModal

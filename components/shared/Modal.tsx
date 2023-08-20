@@ -4,11 +4,11 @@ import IconButton from '~/components/shared/IconButton'
 interface Props {
   children: React.ReactNode
   isOpen: boolean
-  title: string
+  title?: string
   handleClose: () => void
 }
 
-const Modal = ({ children, isOpen, handleClose, title }: Props) => {
+const Modal = ({ children, isOpen, handleClose, title = '' }: Props) => {
   useEffect(() => {
     document.body.style.overflow = 'hidden'
     return (): void => {
@@ -23,9 +23,11 @@ const Modal = ({ children, isOpen, handleClose, title }: Props) => {
         <section className="modal-top">
           <IconButton icon="close" onClick={handleClose} />
         </section>
-        <section className="modal-title">
-          <h1>{title}</h1>
-        </section>
+        {title && (
+          <section className="modal-title">
+            <h1>{title}</h1>
+          </section>
+        )}
         {children}
       </div>
     </div>

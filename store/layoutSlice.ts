@@ -6,12 +6,14 @@ export interface LayoutState {
   isMobileNavOpen: boolean
   isLoginModalOpen: boolean
   isRegisterModalOpen: boolean
+  isProfileModalOpen: boolean
 }
 
 const initialState: LayoutState = {
   isMobileNavOpen: false,
   isLoginModalOpen: false,
   isRegisterModalOpen: false,
+  isProfileModalOpen: false,
 }
 
 const layoutSlice = createSlice({
@@ -32,6 +34,9 @@ const layoutSlice = createSlice({
     },
     setRegisterModalOpen(state, action: PayloadAction<boolean>) {
       state.isRegisterModalOpen = action.payload
+    },
+    setProfileModalOpen(state, action: PayloadAction<boolean>) {
+      state.isProfileModalOpen = action.payload
     },
   },
 })

@@ -4,8 +4,8 @@ import React from 'react'
 // import { useTranslations } from 'next-intl'
 import useStore from '~/services/useStore'
 
-import AuthLogin from '~/components/auth/Login'
-import AuthRegister from '~/components/auth/Register'
+import AuthLoginModal from '~/components/auth/Login'
+import AuthRegisterModal from '~/components/auth/Register'
 
 const Auth = () => {
   const { useStoreSelector } = useStore()
@@ -20,8 +20,8 @@ const Auth = () => {
 
   return (
     <div>
-      {isLoginModalOpen && <AuthLogin />}
-      {isRegisterModalOpen && <AuthRegister />}
+      {isLoginModalOpen && <AuthLoginModal />}
+      {isRegisterModalOpen && <AuthRegisterModal />}
     </div>
   )
 }

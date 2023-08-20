@@ -20,13 +20,6 @@
     "subtitle": "Explore between more than {count} sightings"
   },
   "auth": {
-    "form": {
-      "firstName": "First name",
-      "lastName": "Last name",
-      "dateOfBirth": "Date of Birth",
-      "email": "Email Address",
-      "password": "Password"
-    },
     "login": {
       "title": "Welcome Back",
       "submit": "Login to your Account",
@@ -37,5 +30,12 @@
       "submit": "Create Account",
       "cancel": "I don't wan't to Register"
     }
+  },
+  "profile": {
+    "firstName": "First name",
+    "lastName": "Last name",
+    "dateOfBirth": "Date of Birth",
+    "email": "Email Address",
+    "password": "Password"
   }
 }

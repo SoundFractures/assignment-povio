@@ -3,7 +3,7 @@
 import React, { useEffect } from 'react'
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
-import { signOut, useSession } from 'next-auth/react'
+import { useSession } from 'next-auth/react'
 import useStore from '~/services/useStore'
 import { Pages } from '~/enums'
 
@@ -22,14 +22,23 @@ const Navigation = ({ mobile }: { mobile: boolean }) => {
     if (mobile) window.scrollTo(0, 0)
   }
 
+  // Login
   const handleSetLoginModalOpen = () => {
     handleCloseMobileNav()
     dispatch(actions.layout.setLoginModalOpen(true))
   }
 
+  // Register
   const handleSetRegisterModalOpen = () => {
     handleCloseMobileNav()
     dispatch(actions.layout.setRegisterModalOpen(true))
+  }
+
+  // Profile
+  const handleSetProfileModalOpen = () => {
+    handleCloseMobileNav()
+    console.log(123)
+    dispatch(actions.layout.setProfileModalOpen(true))
   }
 
   useEffect(() => {
@@ -41,10 +50,6 @@ const Navigation = ({ mobile }: { mobile: boolean }) => {
 
   // Session
   const { data: session, status } = useSession()
-
-  const handleSignOut = () => {
-    signOut()
-  }
 
   return (
     <ul className={mobile ? 'mobile-navigation' : 'desktop-navigation'}>
@@ -87,15 +92,14 @@ const Navigation = ({ mobile }: { mobile: boolean }) => {
         </>
       )}
       {status === 'authenticated' && session && (
-        <li>
-          <button
-            type="button"
-            className="text-primary navigation-button"
-            onClick={handleSignOut}
-          >
-            SIGN OUT
-          </button>
-        </li>
+        <button
+          type="button"
+          className="navigation-profile"
+          onClick={handleSetProfileModalOpen}
+        >
+          {session.user?.name || ''}
+          <div className="navigation-profile-avatar" />
+        </button>
       )}
     </ul>
   )
