@@ -30,6 +30,11 @@ const AuthLoginModal = () => {
     dispatch(actions.layout.setLoginModalOpen(false))
   }
 
+  const handleSetProfileModalOpen = () => {
+    handleSetLoginModalClose()
+    dispatch(actions.layout.setProfileModalOpen(true))
+  }
+
   // Form state and validation
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
@@ -113,6 +118,12 @@ const AuthLoginModal = () => {
             submit
             className="w-100 mt-5"
             onClick={handleSetLoginModalClose}
+          />
+          <Button
+            text={tActions('goToProfile')}
+            submit
+            className="w-100 mt-5"
+            onClick={handleSetProfileModalOpen}
           />
         </div>
       )}

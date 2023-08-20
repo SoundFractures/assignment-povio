@@ -6,7 +6,8 @@
     "date": "Please enter a valid Date of Birth in a format DD.MM.YYYY"
   },
   "actions": {
-    "ok": "Okay"
+    "ok": "Okay",
+    "goToProfile": "Go to Profile"
   },
   "navigation": {
     "title": "FlowrSpot",
