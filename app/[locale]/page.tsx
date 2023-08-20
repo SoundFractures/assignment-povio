@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react'
 import useApi from '~/services/useApi'
 import { Flower } from '~/utils/models/Flower.model'
 import FlowerCard from '~/components/home/FlowerCard'
+import IconButton from '~/components/shared/IconButton'
 
 const HomePage = () => {
   const t = useTranslations('home')
@@ -37,6 +38,10 @@ const HomePage = () => {
           <h2 className="home-hero-subtitle">
             {t('subtitle', { count: formatNumberWithDecimals(sightings) })}
           </h2>
+          <div className="home-hero-search">
+            <input type="text" placeholder={t('search')} />
+            <IconButton icon="search" width={20} height={20} />
+          </div>
         </div>
       </section>
       <section className="home-flowers">

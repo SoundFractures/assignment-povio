@@ -10,6 +10,9 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+
+  display: flex;
+  justify-content: center;
 }
 
 .home-hero-content {
@@ -19,6 +22,7 @@
   align-items: center;
   flex-direction: column;
   height: inherit;
+  max-width: 60%;
 }
 
 // TODO | Typography
@@ -48,6 +52,41 @@
   @include tablet {
     font-weight: 300;
     margin-top: 15px;
+  }
+}
+.home-hero-search {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 45px;
+  padding: 25px 20px;
+  background-color: colors.$color-white;
+  border-radius: variables.$base-border-radius;
+  input {
+    border: 0px;
+
+    width: 100%;
+
+    background-color: colors.$color-white;
+    // TODO | Typography
+    color: colors.$color-text-lighten-1;
+    font-family: variables.$font-family-ubuntu;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 18px;
+    // text truncate
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+
+    @include tablet() {
+      font-size: utils.pxToRem(14);
+    }
+  }
+  input:focus {
+    outline: none;
   }
 }
 

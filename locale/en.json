@@ -21,7 +21,8 @@
   },
   "home": {
     "title": "Discover flowers around you",
-    "subtitle": "Explore between more than {count} sightings"
+    "subtitle": "Explore between more than {count} sightings",
+    "search": "Looking for something specific?"
   },
   "auth": {
     "login": {
