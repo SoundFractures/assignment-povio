@@ -1,13 +1,12 @@
 import axios, { AxiosRequestConfig } from 'axios'
 
-const apiClient = (
-  config: {
-    method: AxiosRequestConfig['method']
-    url: AxiosRequestConfig['url']
-    data?: AxiosRequestConfig['data']
-  },
-  authToken: string,
-) => {
+type ApiClientConfig = {
+  method: AxiosRequestConfig['method']
+  url: AxiosRequestConfig['url']
+  data?: AxiosRequestConfig['data']
+}
+
+const apiClient = (config: ApiClientConfig, authToken: string) => {
   // get cookie token
   const client = axios.create({
     baseURL: process.env.NEXT_PUBLIC_API_URL,

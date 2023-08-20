@@ -1,7 +1,9 @@
 import apiClient from '~/utils/apiClient'
+import { GetFlowersResponse } from '~/utils/models/Flower.model'
+import { GetMeResponse } from '~/utils/models/User.model'
 
 const userApi = (authToken: string = '') => {
-  const getMe = () => {
+  const getMe = (): Promise<GetMeResponse> => {
     const config = {
       method: 'GET',
       url: '/users/me',
@@ -17,7 +19,7 @@ const userApi = (authToken: string = '') => {
 }
 
 const flowerApi = (authToken: string) => {
-  const getFlowers = async () => {
+  const getFlowers = async (): Promise<GetFlowersResponse> => {
     const config = {
       method: 'GET',
       url: '/flowers',
