@@ -36,8 +36,8 @@ const AuthLoginModal = () => {
   const [success, setSuccess] = useState(false)
   const formik = useFormik({
     initialValues: {
-      email: 'krnekdo@gmail.com',
-      password: 'admin123',
+      email: '',
+      password: '',
     },
     validationSchema: loginSchema(useTranslations('validation')),
     onSubmit: async (values) => {
@@ -111,7 +111,6 @@ const AuthLoginModal = () => {
           <Button
             text={tActions('ok')}
             submit
-            loading={loading}
             className="w-100 mt-5"
             onClick={handleSetLoginModalClose}
           />

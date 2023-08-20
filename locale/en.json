@@ -5,6 +5,9 @@
     "password": "Password must be at least 8 characters long",
     "date": "Please enter a valid Date of Birth in a format DD.MM.YYYY"
   },
+  "actions": {
+    "ok": "Okay"
+  },
   "navigation": {
     "title": "FlowrSpot",
     "links": {
@@ -23,12 +26,20 @@
     "login": {
       "title": "Welcome Back",
       "submit": "Login to your Account",
-      "cancel": "I don't wan't to Login"
+      "cancel": "I don't wan't to Login",
+      "on": {
+        "error": "Authentication failed. Please try again.",
+        "success": "Congratulations! You have successfully logged into FlowrSpot!"
+      }
     },
     "register": {
       "title": "Create new Account",
       "submit": "Create Account",
-      "cancel": "I don't wan't to Register"
+      "cancel": "I don't wan't to Register",
+      "on": {
+        "error": "Registration failed. Please try again.",
+        "success": "Congratulations! You have successfully signed up for FlowrSpot!"
+      }
     }
   },
   "profile": {
