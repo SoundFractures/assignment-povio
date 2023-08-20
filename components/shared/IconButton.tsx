@@ -6,10 +6,11 @@ import Image from 'next/image'
 type Props = {
   icon: 'menu' | 'close'
   onClick: () => void
+  disabled?: boolean
 }
 
-const MenuIcon = ({ icon, onClick }: Props) => (
-  <button className="icon-button" type="button">
+const MenuIcon = ({ icon, onClick, disabled = false }: Props) => (
+  <button className="icon-button" type="button" disabled={disabled}>
     <Image
       src={`/assets/icons/${icon}.svg`}
       alt="Menu"
