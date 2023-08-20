@@ -71,21 +71,23 @@ const AuthLogin = () => {
       <form onSubmit={formik.handleSubmit}>
         <TextField
           value={formik.values.email}
+          label={t('form.email')}
+          id="email"
+          error={!!formik.errors.email && formik.touched.email}
+          errorText={formik.errors.email}
           onChange={(value) => formik.setFieldValue('email', value)}
           onBlur={formik.handleBlur}
-          label={t('form.emailAddress')}
-          id="email"
-          error={formik.errors.email}
         />
 
         <TextField
           value={formik.values.password}
-          onChange={(value) => formik.setFieldValue('password', value)}
-          onBlur={formik.handleBlur}
           label={t('form.password')}
           id="password"
           type="password"
-          error={formik.errors.password}
+          error={!!formik.errors.password && formik.touched.password}
+          errorText={formik.errors.password}
+          onChange={(value) => formik.setFieldValue('password', value)}
+          onBlur={formik.handleBlur}
         />
         <Button
           text={t('login.submit')}

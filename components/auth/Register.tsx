@@ -35,12 +35,13 @@ const AuthRegister = () => {
       email: '',
       password: '',
     },
+    validateOnBlur: true,
     validationSchema: registerSchema(useTranslations('validation')),
     onSubmit: (values) => {
       console.log(JSON.stringify(values, null, 2))
     },
   })
-  // Left off: Touched not working
+
   return (
     <Modal
       isOpen={isRegisterModalOpen}
@@ -50,45 +51,50 @@ const AuthRegister = () => {
       <div className="form-row">
         <TextField
           value={formik.values.firstName}
-          onChange={(value) => formik.setFieldValue('firstName', value)}
           label={t('form.firstName')}
           id="firstName"
           error={!!formik.errors.firstName && formik.touched.firstName}
           errorText={formik.errors.firstName}
+          onChange={(value) => formik.setFieldValue('firstName', value)}
+          onBlur={formik.handleBlur}
         />
         <TextField
           value={formik.values.lastName}
-          onChange={(value) => formik.setFieldValue('lastName', value)}
           label={t('form.lastName')}
           id="lastName"
           error={!!formik.errors.lastName && formik.touched.lastName}
           errorText={formik.errors.lastName}
+          onChange={(value) => formik.setFieldValue('lastName', value)}
+          onBlur={formik.handleBlur}
         />
       </div>
       <TextField
         value={formik.values.dateOfBirth}
-        onChange={(value) => formik.setFieldValue('dateOfBirth', value)}
         label={t('form.dateOfBirth')}
         id="dateOfBirth"
         error={!!formik.errors.dateOfBirth && formik.touched.dateOfBirth}
         errorText={formik.errors.dateOfBirth}
+        onChange={(value) => formik.setFieldValue('dateOfBirth', value)}
+        onBlur={formik.handleBlur}
       />
       <TextField
         value={formik.values.email}
-        onChange={(value) => formik.setFieldValue('email', value)}
-        label={t('form.emailAddress')}
-        id="emailAddress"
+        label={t('form.email')}
+        id="email"
         error={!!formik.errors.email && formik.touched.email}
         errorText={formik.errors.email}
+        onChange={(value) => formik.setFieldValue('email', value)}
+        onBlur={formik.handleBlur}
       />
       <TextField
         value={formik.values.password}
-        onChange={(value) => formik.setFieldValue('password', value)}
         label={t('form.password')}
         id="password"
         type="password"
         error={!!formik.errors.password && formik.touched.password}
         errorText={formik.errors.password}
+        onChange={(value) => formik.setFieldValue('password', value)}
+        onBlur={formik.handleBlur}
       />
       <Button
         text={t('register.submit')}
