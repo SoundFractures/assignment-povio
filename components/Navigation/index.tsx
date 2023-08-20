@@ -37,7 +37,6 @@ const Navigation = ({ mobile }: { mobile: boolean }) => {
   // Profile
   const handleSetProfileModalOpen = () => {
     handleCloseMobileNav()
-    console.log(123)
     dispatch(actions.layout.setProfileModalOpen(true))
   }
 

@@ -9,11 +9,13 @@ import Modal from '~/components/shared/Modal'
 import TextField from '~/components/base/TextField'
 import Button from '~/components/base/Button'
 import AuthCancel from '~/components/auth/AuthCancel'
+import ErrorText from '~/components/base/ErrorText'
 import { loginSchema } from '~/utils/validation'
 
 const AuthLoginModal = () => {
   const tAuth = useTranslations('auth')
   const tProfile = useTranslations('profile')
+  const tActions = useTranslations('actions')
 
   // Modal config
   const { useStoreSelector, actions, useStoreDispatch } = useStore()
@@ -30,6 +32,8 @@ const AuthLoginModal = () => {
 
   // Form state and validation
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
+  const [success, setSuccess] = useState(false)
   const formik = useFormik({
     initialValues: {
       email: 'krnekdo@gmail.com',
@@ -38,20 +42,19 @@ const AuthLoginModal = () => {
     validationSchema: loginSchema(useTranslations('validation')),
     onSubmit: async (values) => {
       setLoading(true)
+      setError('')
       // TODO | move to service and register
       await signIn('credentials', {
         email: values.email,
         password: values.password,
         redirect: false,
+      }).then((res: any) => {
+        if (res.error) {
+          setError(tAuth('login.on.error').toString())
+        } else {
+          setSuccess(true)
+        }
       })
-        .then((res) => {
-          console.log(res)
-          handleSetLoginModalClose()
-        })
-        .catch((err) => {
-          console.log('err')
-          console.log(err)
-        })
 
       setLoading(false)
     },
@@ -62,38 +65,58 @@ const AuthLoginModal = () => {
       isOpen={isLoginModalOpen}
       handleClose={handleSetLoginModalClose}
       title={tAuth('login.title')}
+      disabled={loading}
     >
-      <form onSubmit={formik.handleSubmit}>
-        <TextField
-          value={formik.values.email}
-          label={tProfile('email')}
-          id="email"
-          error={!!formik.errors.email && formik.touched.email}
-          errorText={formik.errors.email}
-          onChange={(value) => formik.setFieldValue('email', value)}
-          onBlur={formik.handleBlur}
-        />
+      {!success && (
+        <>
+          {error && <ErrorText text={error} />}
+          <form onSubmit={formik.handleSubmit}>
+            <TextField
+              value={formik.values.email}
+              label={tProfile('email')}
+              id="email"
+              error={!!formik.errors.email && formik.touched.email}
+              errorText={formik.errors.email}
+              onChange={(value) => formik.setFieldValue('email', value)}
+              onBlur={formik.handleBlur}
+            />
 
-        <TextField
-          value={formik.values.password}
-          label={tProfile('password')}
-          id="password"
-          type="password"
-          error={!!formik.errors.password && formik.touched.password}
-          errorText={formik.errors.password}
-          onChange={(value) => formik.setFieldValue('password', value)}
-          onBlur={formik.handleBlur}
-        />
-        <Button
-          text={tAuth('login.submit')}
-          submit
-          loading={loading}
-          className="w-100 mt-5"
-        />
-      </form>
-      <AuthCancel onClick={handleSetLoginModalClose}>
-        {tAuth('login.cancel')}
-      </AuthCancel>
+            <TextField
+              value={formik.values.password}
+              label={tProfile('password')}
+              id="password"
+              type="password"
+              error={!!formik.errors.password && formik.touched.password}
+              errorText={formik.errors.password}
+              onChange={(value) => formik.setFieldValue('password', value)}
+              onBlur={formik.handleBlur}
+            />
+            <Button
+              text={tAuth('login.submit')}
+              submit
+              loading={loading}
+              className="w-100 mt-5"
+            />
+          </form>
+
+          <AuthCancel onClick={handleSetLoginModalClose} disabled={loading}>
+            {tAuth('login.cancel')}
+          </AuthCancel>
+        </>
+      )}
+
+      {success && (
+        <div className="">
+          <span>{tAuth('login.on.success')}</span>
+          <Button
+            text={tActions('ok')}
+            submit
+            loading={loading}
+            className="w-100 mt-5"
+            onClick={handleSetLoginModalClose}
+          />
+        </div>
+      )}
     </Modal>
   )
 }
