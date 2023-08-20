@@ -3,8 +3,8 @@
 import React, { useEffect } from 'react'
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
+import { signOut, useSession } from 'next-auth/react'
 import useStore from '~/services/useStore'
-
 import { Pages } from '~/enums'
 
 const Navigation = ({ mobile }: { mobile: boolean }) => {
@@ -39,6 +39,13 @@ const Navigation = ({ mobile }: { mobile: boolean }) => {
     }
   }, [isMobileNavOpen])
 
+  // Session
+  const { data: session, status } = useSession()
+
+  const handleSignOut = () => {
+    signOut()
+  }
+
   return (
     <ul className={mobile ? 'mobile-navigation' : 'desktop-navigation'}>
       <li>
@@ -56,24 +63,40 @@ const Navigation = ({ mobile }: { mobile: boolean }) => {
           {t('links.favorites')}
         </Link>
       </li>
-      <li>
-        <button
-          type="button"
-          className="text-primary navigation-button"
-          onClick={handleSetLoginModalOpen}
-        >
-          {t('links.login')}
-        </button>
-      </li>
-      <li>
-        <button
-          type="button"
-          className="navigation-button navigation-button-filled"
-          onClick={handleSetRegisterModalOpen}
-        >
-          {t('links.register')}
-        </button>
-      </li>
+
+      {status === 'unauthenticated' && (
+        <>
+          <li>
+            <button
+              type="button"
+              className="text-primary navigation-button"
+              onClick={handleSetLoginModalOpen}
+            >
+              {t('links.login')}
+            </button>
+          </li>
+          <li>
+            <button
+              type="button"
+              className="navigation-button navigation-button-filled"
+              onClick={handleSetRegisterModalOpen}
+            >
+              {t('links.register')}
+            </button>
+          </li>
+        </>
+      )}
+      {status === 'authenticated' && session && (
+        <li>
+          <button
+            type="button"
+            className="text-primary navigation-button"
+            onClick={handleSignOut}
+          >
+            SIGN OUT
+          </button>
+        </li>
+      )}
     </ul>
   )
 }

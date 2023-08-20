@@ -31,12 +31,27 @@ const AuthLogin = () => {
   const [loading, setLoading] = useState(false)
   const formik = useFormik({
     initialValues: {
-      email: '',
-      password: '',
+      email: 'krnekdo@gmail.com',
+      password: 'admin123',
     },
     validationSchema: loginSchema(useTranslations('validation')),
-    onSubmit: (values) => {
-      console.log(JSON.stringify(values, null, 2))
+    onSubmit: async (values) => {
+      setLoading(true)
+      await signIn('credentials', {
+        email: values.email,
+        password: values.password,
+        redirect: false,
+      })
+        .then((res) => {
+          console.log(res)
+          handleSetLoginModalClose()
+        })
+        .catch((err) => {
+          console.log('err')
+          console.log(err)
+        })
+
+      setLoading(false)
     },
   })
 

@@ -25,7 +25,7 @@ const BaseButton = ({
       className={buttonClassName}
       type={!submit ? 'button' : 'submit'}
       onClick={onClick}
-      disabled={disabled}
+      disabled={disabled || loading}
     >
       {loading ? <div className="base-loader" /> : text}
     </button>
