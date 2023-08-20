@@ -1,10 +1,8 @@
 import { NextAuthOptions } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
-import { config } from 'dotenv'
 import NextAuth from 'next-auth/next'
 import axios from 'axios'
 
-config()
 export const authOptions: NextAuthOptions = {
   providers: [
     // Credential provider
@@ -19,7 +17,7 @@ export const authOptions: NextAuthOptions = {
 
         return axios({
           method: 'POST',
-          url: 'https://flowrspot-api.herokuapp.com/api/v1/users/login',
+          url: `${process.env.NEXT_PUBLIC_API_URL}/users/login`,
           data: payload,
           headers: {
             'Content-Type': 'application/json',
@@ -28,7 +26,7 @@ export const authOptions: NextAuthOptions = {
           .then(async (res) =>
             axios({
               method: 'GET',
-              url: 'https://flowrspot-api.herokuapp.com/api/v1/users/me',
+              url: `${process.env.NEXT_PUBLIC_API_URL}/users/me`,
               headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${res.data.auth_token}`,
@@ -47,7 +45,35 @@ export const authOptions: NextAuthOptions = {
     strategy: 'jwt',
   },
   secret: process.env.NEXT_AUTH_SECRET,
-  callbacks: {},
+  callbacks: {
+    async signIn() {
+      return true
+    },
+    // TODO | dont let this be any
+    async jwt({
+      token,
+      user,
+      account,
+    }: {
+      token: any
+      user: any
+      account: any
+    }) {
+      if (account && user) {
+        return {
+          ...token,
+          accessToken: user.accessToken,
+        }
+      }
+
+      return token
+    },
+    async session({ session, token }: { session: any; token: any }) {
+      // eslint-disable-next-line no-param-reassign
+      session.user.accessToken = token.accessToken
+      return session
+    },
+  },
   debug: true,
 }
 
