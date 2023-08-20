@@ -4,18 +4,26 @@ import React from 'react'
 import Image from 'next/image'
 
 type Props = {
-  icon: 'menu' | 'close'
+  icon: 'menu' | 'close' | 'star' | 'star-filled'
   onClick: () => void
   disabled?: boolean
+  width?: number
+  height?: number
 }
 
-const MenuIcon = ({ icon, onClick, disabled = false }: Props) => (
+const MenuIcon = ({
+  icon,
+  onClick,
+  disabled = false,
+  width = 24,
+  height = 24,
+}: Props) => (
   <button className="icon-button" type="button" disabled={disabled}>
     <Image
       src={`/assets/icons/${icon}.svg`}
       alt="Menu"
-      width={24}
-      height={24}
+      width={width}
+      height={height}
       onClick={onClick}
     />
   </button>

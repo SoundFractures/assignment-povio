@@ -1,6 +1,11 @@
-// import Image from 'next/image'
-// import styles from '~/styles/pages/Home.module.scss'
+'use client'
+
+import { useSession } from 'next-auth/react'
 import { useTranslations } from 'next-intl'
+import { useEffect, useState } from 'react'
+import useApi from '~/services/useApi'
+import { Flower } from '~/utils/models/Flower.model'
+import FlowerCard from '~/components/home/FlowerCard'
 
 const HomePage = () => {
   const t = useTranslations('home')
@@ -11,15 +16,37 @@ const HomePage = () => {
       maximumFractionDigits: 1,
     }).format(number)
 
+  const { data: session } = useSession()
+  const { flower } = useApi(session?.user.accessToken!)
+
+  const [flowers, setFlowers] = useState<Flower[]>([])
+  const handleGetFlowers = async () => {
+    await flower.getFlowers().then((res) => {
+      setFlowers(res.flowers)
+    })
+  }
+
+  useEffect(() => {
+    handleGetFlowers()
+  }, [])
   return (
-    <section className="home-hero">
-      <div className="home-hero-content">
-        <h1 className="home-hero-title">{t('title')}</h1>
-        <h2 className="home-hero-subtitle">
-          {t('subtitle', { count: formatNumberWithDecimals(sightings) })}
-        </h2>
-      </div>
-    </section>
+    <>
+      <section className="home-hero">
+        <div className="home-hero-content">
+          <h1 className="home-hero-title">{t('title')}</h1>
+          <h2 className="home-hero-subtitle">
+            {t('subtitle', { count: formatNumberWithDecimals(sightings) })}
+          </h2>
+        </div>
+      </section>
+      <section className="home-flowers">
+        <div className="home-flowers-images">
+          {flowers.map((flower) => (
+            <FlowerCard flower={flower} key={flower.id} />
+          ))}
+        </div>
+      </section>
+    </>
   )
 }
 
