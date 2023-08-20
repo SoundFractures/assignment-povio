@@ -18,7 +18,6 @@ export function generateStaticParams() {
   return [{ locale: 'en' }]
 }
 
-// TODO | Loading state for auth loading
 const RootLayout = async ({
   children,
   params: { locale },
