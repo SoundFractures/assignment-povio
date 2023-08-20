@@ -24,7 +24,7 @@
       "firstName": "First name",
       "lastName": "Last name",
       "dateOfBirth": "Date of Birth",
-      "emailAddress": "Email Address",
+      "email": "Email Address",
       "password": "Password"
     },
     "login": {

@@ -7,7 +7,7 @@ type Props = {
   label: string
   value: string
   onChange: React.Dispatch<React.SetStateAction<string>>
-  onBlur?: React.Dispatch<React.SetStateAction<string>>
+  onBlur?: React.Dispatch<React.SetStateAction<any>> // Couldnt find the right type?
   type?: 'text' | 'password'
   error?: boolean
   errorText?: string
@@ -42,7 +42,7 @@ const BaseTextField = ({
             className="base-text-field-input"
             aria-label={label}
             onChange={(event) => onChange(event.target.value)}
-            onBlur={(event) => onBlur(event.target.value)}
+            onBlur={(event) => onBlur(event)}
           />
         </div>
       </div>
