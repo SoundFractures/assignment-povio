@@ -33,19 +33,13 @@ export const authOptions: NextAuthOptions = {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${res.data.auth_token}`,
               },
-            }).then((response) => {
-              console.log(response.data.user)
-              return {
-                _id: response.data.user.id,
-                name: `${response.data.user.first_name} ${response.data.user.last_name}`,
-                accessToken: res.data.auth_token,
-              }
-            }),
+            }).then((response) => ({
+              _id: response.data.user.id,
+              name: `${response.data.user.first_name} ${response.data.user.last_name}`,
+              accessToken: res.data.auth_token,
+            })),
           )
-          .catch((err) => {
-            console.log(err.response.data)
-            return null
-          })
+          .catch(() => null)
       },
     }),
   ],
