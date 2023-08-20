@@ -12,7 +12,7 @@ const Navigation = ({ mobile }: { mobile: boolean }) => {
   const t = useTranslations('navigation')
 
   const { actions, useStoreDispatch, useStoreSelector } = useStore()
-  // TODO | MobileNav composable
+
   const dispatch = useStoreDispatch()
   const isMobileNavOpen = useStoreSelector(
     (state) => state.layout.isMobileNavOpen,
@@ -53,17 +53,17 @@ const Navigation = ({ mobile }: { mobile: boolean }) => {
 
   return (
     <ul className={mobile ? 'mobile-navigation' : 'desktop-navigation'}>
-      <li>
+      <li className="text-1">
         <Link href={Pages.Flowers} onClick={handleCloseMobileNav}>
           {t('links.flowers')}
         </Link>
       </li>
-      <li>
+      <li className="text-1">
         <Link href={Pages.LatestSightings} onClick={handleCloseMobileNav}>
           {t('links.latestSightings')}
         </Link>
       </li>
-      <li>
+      <li className="text-1">
         <Link href={Pages.Favorites} onClick={handleCloseMobileNav}>
           {t('links.favorites')}
         </Link>
@@ -71,7 +71,7 @@ const Navigation = ({ mobile }: { mobile: boolean }) => {
 
       {status === 'unauthenticated' && (
         <>
-          <li>
+          <li className="text-1">
             <button
               type="button"
               className="text-primary navigation-button"
@@ -80,7 +80,7 @@ const Navigation = ({ mobile }: { mobile: boolean }) => {
               {t('links.login')}
             </button>
           </li>
-          <li>
+          <li className="text-1">
             <button
               type="button"
               className="navigation-button navigation-button-filled"
@@ -94,7 +94,7 @@ const Navigation = ({ mobile }: { mobile: boolean }) => {
       {status === 'authenticated' && session && (
         <button
           type="button"
-          className="navigation-profile"
+          className="navigation-profile text-1"
           onClick={handleSetProfileModalOpen}
         >
           {session.user?.name || ''}

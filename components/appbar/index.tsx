@@ -14,7 +14,6 @@ const Appbar = () => {
   const t = useTranslations('navigation')
 
   const { actions, useStoreDispatch, useStoreSelector } = useStore()
-  // TODO | MobileNav composable
 
   const dispatch = useStoreDispatch()
   const isMobileNavOpen = useStoreSelector(

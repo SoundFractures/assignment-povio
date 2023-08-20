@@ -2,7 +2,6 @@
 @use '../abstracts/variables' as variables;
 @use '../abstracts/utils' as utils;
 @use '../abstracts/mixins' as *;
-// TODO | Make everything *
 
 .home-hero {
   background-image: url('/assets/images/hero.png');
@@ -25,7 +24,6 @@
   max-width: 60%;
 }
 
-// TODO | Typography
 .home-hero-title {
   font-family: variables.$font-family-montserrat;
   text-align: center;
@@ -69,14 +67,13 @@
     width: 100%;
 
     background-color: colors.$color-white;
-    // TODO | Typography
     color: colors.$color-text-lighten-1;
     font-family: variables.$font-family-ubuntu;
-    font-size: 18px;
+    font-size: utils.pxToRem(18);
     font-style: normal;
     font-weight: 300;
-    line-height: 18px;
-    // text truncate
+    line-height: utils.pxToRem(18);
+
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
@@ -165,7 +162,6 @@
   align-items: center;
   width: 100%;
 
-  // TODO | typography
   h3 {
     color: colors.$color-white;
     text-align: center;

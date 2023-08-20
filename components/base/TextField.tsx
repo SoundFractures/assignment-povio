@@ -39,7 +39,7 @@ const BaseTextField = ({
             id={id}
             type={type}
             value={value}
-            className="base-text-field-input"
+            className="base-text-field-input text-caption"
             aria-label={label}
             onChange={(event) => onChange(event.target.value)}
             onBlur={(event) => onBlur(event)}

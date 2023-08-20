@@ -8,7 +8,7 @@ type Props = {
   disabled?: boolean
 }
 const AuthCancel = ({ children, onClick, disabled = false }: Props) => (
-  <div className="auth-cancel">
+  <div className="auth-cancel text-caption">
     <button
       type="button"
       className="auth-cancel-button"

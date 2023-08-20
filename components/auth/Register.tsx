@@ -20,7 +20,6 @@ const AuthRegisterModal = () => {
   // Modal config
   const { useStoreSelector, actions, useStoreDispatch } = useStore()
 
-  // TODO | MobileNav composable
   const dispatch = useStoreDispatch()
   const isRegisterModalOpen = useStoreSelector(
     (state) => state.layout.isRegisterModalOpen,

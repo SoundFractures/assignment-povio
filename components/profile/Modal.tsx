@@ -17,7 +17,6 @@ const ProfileModal = () => {
   // Modal config
   const { useStoreSelector, actions, useStoreDispatch } = useStore()
 
-  // TODO | MobileNav composable
   const dispatch = useStoreDispatch()
   const isProfileModalOpen = useStoreSelector(
     (state) => state.layout.isProfileModalOpen,
@@ -75,7 +74,7 @@ const ProfileModal = () => {
             />
             <div className="profile-top-info">
               <span className="profile-top-name">{fullName}</span>
-              <span className="profile-top-sightings">
+              <span className="profile-top-sightings text-caption">
                 {t('sightings', { count: 47 })}
               </span>
             </div>

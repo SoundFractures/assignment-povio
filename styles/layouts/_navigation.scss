@@ -37,14 +37,12 @@
     justify-content: flex-start;
   }
 }
-// TODO | Typography
+
 .desktop-navigation,
 .mobile-navigation {
   li {
     color: colors.$color-text-lighten-1;
-    font-size: utils.pxToRem(14);
-    font-weight: 500;
-    line-height: utils.pxToRem(14); /* 100% */
+    font-family: variables.$font-family-montserrat;
   }
 }
 

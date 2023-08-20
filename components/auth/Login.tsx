@@ -20,7 +20,6 @@ const AuthLoginModal = () => {
   // Modal config
   const { useStoreSelector, actions, useStoreDispatch } = useStore()
 
-  // TODO | MobileNav composable
   const dispatch = useStoreDispatch()
   const isLoginModalOpen = useStoreSelector(
     (state) => state.layout.isLoginModalOpen,
@@ -48,7 +47,7 @@ const AuthLoginModal = () => {
     onSubmit: async (values) => {
       setLoading(true)
       setError('')
-      // TODO | move to service and register
+
       await signIn('credentials', {
         email: values.email,
         password: values.password,

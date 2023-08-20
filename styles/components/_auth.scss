@@ -3,7 +3,6 @@
 @use '../abstracts/utils' as utils;
 @use '../abstracts/mixins' as *;
 
-// TODO | Typography
 .auth-cancel {
   display: flex;
   flex-direction: row;
@@ -15,11 +14,6 @@
 .auth-cancel-button {
   color: colors.$color-grey;
   text-align: center;
-  font-family: variables.$font-family-ubuntu;
-  font-size: utils.pxToRem(13);
-  font-style: normal;
-  font-weight: 400;
-  line-height: utils.pxToRem(13);
 
   background: transparent;
   border: none;

@@ -16,3 +16,20 @@ nav {
   font-family: variables.$font-family-montserrat;
   font-weight: 300;
 }
+
+// navigation li, base button
+.text-1 {
+  font-family: variables.$font-family-montserrat;
+  font-size: utils.pxToRem(14);
+  font-style: normal;
+  font-weight: 500;
+  line-height: utils.pxToRem(14);
+}
+
+.text-caption {
+  font-family: variables.$font-family-ubuntu;
+  font-size: utils.pxToRem(13);
+  font-style: normal;
+  font-weight: 400;
+  line-height: utils.pxToRem(13);
+}

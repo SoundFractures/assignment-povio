@@ -8,7 +8,7 @@ import ProfileModal from '~/components/profile/Modal'
 
 const Auth = () => {
   const { useStoreSelector } = useStore()
-  // TODO | MobileNav composable
+
   const isProfileModalOpen = useStoreSelector(
     (state) => state.layout.isProfileModalOpen,
   )

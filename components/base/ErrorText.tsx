@@ -7,7 +7,7 @@ type Props = {
 }
 
 const ErrorText = ({ text }: Props) => (
-  <span className="base-error-text">{text}</span>
+  <span className="base-error-text text-caption">{text}</span>
 )
 
 export default ErrorText

@@ -9,7 +9,7 @@ import AuthRegisterModal from '~/components/auth/Register'
 
 const Auth = () => {
   const { useStoreSelector } = useStore()
-  // TODO | MobileNav composable
+
   const isLoginModalOpen = useStoreSelector(
     (state) => state.layout.isLoginModalOpen,
   )
