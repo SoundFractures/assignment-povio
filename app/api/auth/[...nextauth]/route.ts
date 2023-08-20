@@ -49,16 +49,7 @@ export const authOptions: NextAuthOptions = {
     async signIn() {
       return true
     },
-    // TODO | dont let this be any
-    async jwt({
-      token,
-      user,
-      account,
-    }: {
-      token: any
-      user: any
-      account: any
-    }) {
+    async jwt({ token, user, account }) {
       if (account && user) {
         return {
           ...token,
@@ -68,7 +59,7 @@ export const authOptions: NextAuthOptions = {
 
       return token
     },
-    async session({ session, token }: { session: any; token: any }) {
+    async session({ session, token }) {
       // eslint-disable-next-line no-param-reassign
       session.user.accessToken = token.accessToken
       return session
