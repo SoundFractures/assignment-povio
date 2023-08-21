@@ -1,5 +1,12 @@
 // /* eslint-disable no-undef -- NOTE | Seems like airbnb's config is messing something up */
 
+// ! ---- !
+
+// Left off here with a bunch of error after error with providers, nex-auth, fetch, next-intl, etc.
+// Couldn't get it to work, so I'm going to move on for now.
+
+// ! ---- !
+
 // import React from 'react'
 // import { render, screen, waitFor } from '@testing-library/react'
 // import client, { Session } from 'next-auth'
