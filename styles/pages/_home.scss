@@ -2,7 +2,6 @@
 @use '../abstracts/variables' as variables;
 @use '../abstracts/utils' as utils;
 @use '../abstracts/mixins' as *;
-// TODO | Make everything *
 
 .home-hero {
   background-image: url('/assets/images/hero.png');
@@ -10,6 +9,9 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+
+  display: flex;
+  justify-content: center;
 }
 
 .home-hero-content {
@@ -19,6 +21,7 @@
   align-items: center;
   flex-direction: column;
   height: inherit;
+  max-width: 60%;
 }
 
 .home-hero-title {
@@ -47,5 +50,147 @@
   @include tablet {
     font-weight: 300;
     margin-top: 15px;
+  }
+}
+.home-hero-search {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 45px;
+  padding: 25px 20px;
+  background-color: colors.$color-white;
+  border-radius: variables.$base-border-radius;
+  input {
+    border: 0px;
+
+    width: 100%;
+
+    background-color: colors.$color-white;
+    color: colors.$color-text-lighten-1;
+    font-family: variables.$font-family-ubuntu;
+    font-size: utils.pxToRem(18);
+    font-style: normal;
+    font-weight: 300;
+    line-height: utils.pxToRem(18);
+
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+
+    @include tablet() {
+      font-size: utils.pxToRem(14);
+    }
+  }
+  input:focus {
+    outline: none;
+  }
+}
+
+// Flowers // gap 20px
+.home-flowers {
+  padding: 70px 20px;
+
+  @include tablet() {
+    padding: 40px 20px;
+  }
+
+  @include mobile() {
+    padding: 40px 16px;
+  }
+}
+
+.home-flowers-images {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+
+  @include tablet() {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include mobile() {
+    grid-template-columns: repeat(2, 2fr);
+  }
+}
+
+.home-flowers-images-item {
+  position: relative;
+  text-align: center;
+  color: white;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+  border-radius: variables.$base-border-radius;
+  box-shadow: variables.$base-box-shadow-2;
+}
+
+.home-flowers-images-item-image {
+  width: 100%;
+  height: 350px;
+  object-fit: fill;
+  object-position: center;
+  mix-blend-mode: overlay;
+  border-radius: variables.$base-border-radius;
+
+  @include tablet() {
+    height: 290px;
+  }
+
+  @include mobile() {
+    height: 220px;
+  }
+}
+
+// Note | SVG icons seem fucked up
+.home-flowers-images-item-star {
+  position: absolute;
+  top: 5px;
+  right: 0px;
+}
+
+.home-flower-image-item-content {
+  position: absolute;
+  left: 50%;
+  bottom: -20px;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  h3 {
+    color: colors.$color-white;
+    text-align: center;
+    font-family: variables.$font-family-ubuntu;
+    font-size: utils.pxToRem(20);
+    font-style: normal;
+    font-weight: 400;
+    line-height: utils.pxToRem(15);
+  }
+  span {
+    color: colors.$color-white;
+    text-align: center;
+    font-family: variables.$font-family-ubuntu;
+    font-size: utils.pxToRem(12);
+    font-style: italic;
+    font-weight: 400;
+    line-height: utils.pxToRem(12);
+    opacity: 0.7;
+    margin-top: 7px;
+  }
+  button {
+    border-radius: 20px;
+    border: 0px;
+    color: colors.$color-white;
+    padding: 9px 15px;
+    margin-top: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    max-width: 150px;
+    height: 30px;
+    opacity: 0.8;
   }
 }

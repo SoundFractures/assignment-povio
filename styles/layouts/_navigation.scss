@@ -42,9 +42,7 @@
 .mobile-navigation {
   li {
     color: colors.$color-text-lighten-1;
-    font-size: utils.pxToRem(14);
-    font-weight: 500;
-    line-height: utils.pxToRem(14); /* 100% */
+    font-family: variables.$font-family-montserrat;
   }
 }
 
@@ -72,8 +70,8 @@
 
 .navigation-button-filled {
   border-radius: 50px;
-  background: linear-gradient(270deg, #ecbcb3 0%, #eaa79e 100%);
-  box-shadow: 0px 15px 20px 0px rgba(234, 168, 159, 0.2);
+  background: variables.$base-gradient-background;
+  box-shadow: variables.$base-box-shadow;
 
   width: 140px;
   height: 40px;
@@ -85,5 +83,26 @@
 
   @include tablet {
     display: block;
+  }
+}
+
+.navigation-profile {
+  border: 0px;
+  cursor: pointer;
+  background: transparent;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  margin-left: 30px;
+  padding: 0px;
+  color: colors.$color-text-lighten-1;
+  font-size: utils.pxToRem(14);
+  font-weight: 500;
+  line-height: utils.pxToRem(14); /* 100% */
+
+  @include tablet {
+    flex-direction: row-reverse;
+    margin-left: 0px;
   }
 }

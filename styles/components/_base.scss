@@ -1,0 +1,119 @@
+@use '../base/colors' as colors;
+@use '../abstracts/variables' as variables;
+@use '../abstracts/utils' as utils;
+@use '../abstracts/mixins' as *;
+
+// TEXTFIELD
+.base-text-field-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex-grow: 1;
+}
+
+.base-text-field {
+  height: 50px;
+  margin-bottom: 10px;
+  border-radius: variables.$base-border-radius;
+  border: 1px solid colors.$color-border;
+  background: colors.$color-text-field-bg;
+}
+
+.base-error-text-field {
+  border: 1px solid colors.$color-error-lighten-1;
+}
+
+.base-text-field-content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  margin: 11px 15px;
+}
+.base-text-field-input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: colors.$color-text;
+
+  padding: 0px;
+}
+
+.base-text-field-label {
+  pointer-events: none;
+  color: #949ea0;
+  font-family: variables.$font-family-ubuntu;
+  font-size: utils.pxToRem(10);
+  font-style: normal;
+  font-weight: 400;
+  line-height: utils.pxToRem(10);
+  pointer-events: auto;
+}
+
+.base-text-field-error-caption {
+  color: colors.$color-error;
+  font-family: variables.$font-family-ubuntu;
+  font-size: utils.pxToRem(10);
+  font-style: normal;
+  font-weight: 200;
+  line-height: utils.pxToRem(10);
+  margin-bottom: 10px;
+}
+
+// BUTTON
+.base-button {
+  height: 50px;
+  flex-shrink: 0;
+  border-radius: variables.$base-border-radius;
+  background: variables.$base-gradient-background;
+  box-shadow: variables.$base-box-shadow;
+  border: none;
+  cursor: pointer;
+
+  color: colors.$color-white;
+
+  text-align: center;
+}
+
+.base-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.base-loader:after {
+  content: ' ';
+  display: block;
+  width: 24px;
+  height: 24px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 2px solid colors.$color-white;
+  border-color: colors.$color-white transparent colors.$color-white transparent;
+  animation: bade-loader 1.2s linear infinite;
+}
+@keyframes bade-loader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.base-loader-black:after {
+  border: 2px solid colors.$color-black !important;
+  border-color: colors.$color-black transparent colors.$color-black transparent !important;
+}
+
+.base-error-text {
+  color: colors.$color-error;
+
+  margin-bottom: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

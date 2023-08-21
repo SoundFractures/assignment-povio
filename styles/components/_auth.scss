@@ -1,0 +1,21 @@
+@use '../base/colors' as colors;
+@use '../abstracts/variables' as variables;
+@use '../abstracts/utils' as utils;
+@use '../abstracts/mixins' as *;
+
+.auth-cancel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.auth-cancel-button {
+  color: colors.$color-grey;
+  text-align: center;
+
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}

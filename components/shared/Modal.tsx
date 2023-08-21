@@ -1,12 +1,23 @@
 import React, { useEffect } from 'react'
+import IconButton from '~/components/shared/IconButton'
 
 interface Props {
   children: React.ReactNode
   isOpen: boolean
+  title?: string
   handleClose: () => void
+  disabled?: boolean
+  className?: string
 }
 
-const Modal = ({ children, isOpen, handleClose }: Props) => {
+const Modal = ({
+  children,
+  isOpen,
+  handleClose,
+  title = '',
+  disabled = false,
+  className = '',
+}: Props) => {
   useEffect(() => {
     document.body.style.overflow = 'hidden'
     return (): void => {
@@ -15,14 +26,18 @@ const Modal = ({ children, isOpen, handleClose }: Props) => {
   }, [isOpen])
   if (!isOpen) return null
 
+  const modalClassName = `modal-content ${className}`
   return (
     <div className="modal">
-      <div className="modal-content">
+      <div className={modalClassName}>
         <section className="modal-top">
-          <button type="button" onClick={handleClose}>
-            Close
-          </button>
+          <IconButton icon="close" onClick={handleClose} disabled={disabled} />
         </section>
+        {title && (
+          <section className="modal-title">
+            <h1>{title}</h1>
+          </section>
+        )}
         {children}
       </div>
     </div>

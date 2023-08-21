@@ -1,4 +1,14 @@
 {
+  "validation": {
+    "required": "This field is required",
+    "email": "Please enter a valid Email Address",
+    "password": "Password must be at least 8 characters long",
+    "date": "Please enter a valid Date of Birth in a format DD.MM.YYYY"
+  },
+  "actions": {
+    "ok": "Okay",
+    "goToProfile": "Go to Profile"
+  },
   "navigation": {
     "title": "FlowrSpot",
     "links": {
@@ -11,6 +21,36 @@
   },
   "home": {
     "title": "Discover flowers around you",
-    "subtitle": "Explore between more than {count} sightings"
+    "subtitle": "Explore between more than {count} sightings",
+    "search": "Looking for something specific?"
+  },
+  "auth": {
+    "login": {
+      "title": "Welcome Back",
+      "submit": "Login to your Account",
+      "cancel": "I don't wan't to Login",
+      "on": {
+        "error": "Authentication failed. Please try again.",
+        "success": "Congratulations! You have successfully logged into FlowrSpot!"
+      }
+    },
+    "register": {
+      "title": "Create new Account",
+      "submit": "Create Account",
+      "cancel": "I don't wan't to Register",
+      "on": {
+        "error": "Registration failed. Please try again.",
+        "success": "Congratulations! You have successfully signed up for FlowrSpot!"
+      }
+    }
+  },
+  "profile": {
+    "firstName": "First name",
+    "lastName": "Last name",
+    "dateOfBirth": "Date of Birth",
+    "email": "Email Address",
+    "password": "Password",
+    "sightings": "{count} sightings",
+    "logout": "Logout"
   }
 }

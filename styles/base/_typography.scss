@@ -6,33 +6,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap');
 
-// TODO | Set fallback fonts
 html,
 body {
-  font-family: variables.$font-family-ubuntu;
+  font-family: variables.$font-family-ubuntu, sans-serif;
 }
 
 nav {
-  font-family: variables.$font-family-montserrat;
+  font-family: variables.$font-family-montserrat, sans-serif;
   font-weight: 300;
 }
 
-.text-hero {
-  color: colors.$color-text;
-  text-align: center;
-  font-size: utils.pxToRem(48);
+// navigation li, base button
+.text-1 {
+  font-family: variables.$font-family-montserrat;
+  font-size: utils.pxToRem(14);
   font-style: normal;
-  font-weight: 600;
-  line-height: utils.pxToRem(40);
+  font-weight: 500;
+  line-height: utils.pxToRem(14);
+}
 
-  // @include tablet {
-  //   font-size: utils.pxToRem(21);
-  //   line-height: utils.pxToRem(26);
-  //   color: blue;
-  // }
-  // @include mobile {
-  //   font-size: utils.pxToRem(12);
-  //   line-height: utils.pxToRem(10);
-  //   color: red;
-  // }
+.text-caption {
+  font-family: variables.$font-family-ubuntu;
+  font-size: utils.pxToRem(13);
+  font-style: normal;
+  font-weight: 400;
+  line-height: utils.pxToRem(13);
 }

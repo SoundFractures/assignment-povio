@@ -5,16 +5,12 @@ import { NextIntlClientProvider } from 'next-intl'
 import { notFound } from 'next/navigation'
 import Appbar from '~/components/appbar'
 import NavigationMobile from '~/components/navigation/Mobile'
-import StoreProvider from '~/components/StoreProvider'
 import Auth from '~/components/auth'
+import Profile from '~/components/profile'
+import Providers from '~/components/Providers'
 
 export const metadata: Metadata = {
   title: 'Povio - Assignment',
-  description: 'Vetting assignment for Povio',
-}
-
-export function generateStaticParams() {
-  return [{ locale: 'en' }]
 }
 
 const RootLayout = async ({
@@ -26,23 +22,29 @@ const RootLayout = async ({
     locale: string
   }
 }) => {
+  // load messages from locale file
   let messages
   try {
     messages = (await import(`~/locale/${locale}.json`)).default
   } catch (error) {
     notFound()
   }
+
   return (
     <html lang="en">
-      <body>
+      <body suppressHydrationWarning>
         <main>
           <NextIntlClientProvider locale={locale} messages={messages}>
-            <StoreProvider>
+            <Providers>
               <Appbar />
+
               <NavigationMobile />
               {children}
+
+              {/* DIALOGS */}
               <Auth />
-            </StoreProvider>
+              <Profile />
+            </Providers>
           </NextIntlClientProvider>
         </main>
       </body>

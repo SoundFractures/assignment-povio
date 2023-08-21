@@ -14,12 +14,13 @@ const Appbar = () => {
   const t = useTranslations('navigation')
 
   const { actions, useStoreDispatch, useStoreSelector } = useStore()
-  // TODO | MobileNav composable
 
+  // Mobile Navigation Icon functionality
   const dispatch = useStoreDispatch()
   const isMobileNavOpen = useStoreSelector(
     (state) => state.layout.isMobileNavOpen,
   )
+
   const handleSetMobileNavOpen = (value: boolean) => {
     dispatch(actions.layout.setMobileNavOpen(value))
   }

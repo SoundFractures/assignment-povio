@@ -1,5 +1,6 @@
 @use '../base/colors' as colors;
 @use '../abstracts/variables' as variables;
+@use '../abstracts/utils' as utils;
 @use '../abstracts/mixins' as *;
 
 .modal {
@@ -8,7 +9,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
   background-color: rgba(colors.$color-black, 0.5);
+  color: colors.$color-text;
 
   @include mobile() {
     top: 80px;
@@ -20,14 +23,15 @@
 
 .modal-content {
   background-color: colors.$color-white !important;
-  border-radius: variables.$base-border-width;
+  border-radius: variables.$base-border-radius;
   opacity: 100%;
   width: 440px;
-  height: 410px;
+  margin: 10px;
   padding: 20px;
-  box-shadow: 0px 15px 30px 0px rgba(0, 0, 0, 0.05);
+  box-shadow: variables.$base-box-shadow-2;
 
   @include mobile() {
+    margin: 0px;
     height: calc(100dvh - 80px);
     border-radius: 0px;
   }
@@ -38,4 +42,21 @@
   justify-content: flex-end;
   align-items: center;
   width: 100%;
+  max-height: 10px;
+  margin: 0px 8px;
+
+  @include mobile() {
+    display: none;
+  }
+}
+
+.modal-title {
+  font-size: utils.pxToRem(20);
+  font-weight: 500;
+  line-height: utils.pxToRem(20);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  margin-bottom: 30px;
 }
