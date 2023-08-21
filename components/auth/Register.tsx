@@ -153,7 +153,7 @@ const AuthRegisterModal = () => {
       )}
 
       {success && (
-        <div className="">
+        <div className="auth-success">
           <span>{tAuth('register.on.success')}</span>
           <Button
             text={tActions('ok')}

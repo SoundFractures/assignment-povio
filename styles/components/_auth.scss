@@ -19,3 +19,12 @@
   border: none;
   cursor: pointer;
 }
+.auth-success {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  span {
+    padding: 20px 0px;
+  }
+}

@@ -109,19 +109,17 @@ const AuthLoginModal = () => {
       )}
 
       {success && (
-        <div className="">
+        <div className="auth-success">
           <span>{tAuth('login.on.success')}</span>
-          <Button
-            text={tActions('ok')}
-            submit
-            className="w-100 mt-5"
-            onClick={handleSetLoginModalClose}
-          />
           <Button
             text={tActions('goToProfile')}
             submit
-            className="w-100 mt-5"
             onClick={handleSetProfileModalOpen}
+          />
+          <Button
+            text={tActions('ok')}
+            submit
+            onClick={handleSetLoginModalClose}
           />
         </div>
       )}
