@@ -7,6 +7,7 @@ type Props = {
   children: React.ReactNode
   disabled?: boolean
 }
+// The text below the action buttons of Login and Register modals
 const AuthCancel = ({ children, onClick, disabled = false }: Props) => (
   <div className="auth-cancel text-caption">
     <button

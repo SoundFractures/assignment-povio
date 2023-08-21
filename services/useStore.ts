@@ -4,6 +4,7 @@ import type { TypedUseSelectorHook } from 'react-redux'
 import { RootState, AppDispatch } from '~/store'
 import { layoutSliceActions } from '~/store/layoutSlice'
 
+// Convenience hook to use the store
 const useStore = () => {
   const useStoreDispatch: () => AppDispatch = useDispatch
   const useStoreSelector: TypedUseSelectorHook<RootState> = useSelector

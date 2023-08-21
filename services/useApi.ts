@@ -2,6 +2,7 @@ import apiClient from '~/utils/apiClient'
 import { GetFlowersResponse } from '~/utils/models/Flower.model'
 import { GetMeResponse } from '~/utils/models/User.model'
 
+// The api hook returns all of the api functions and uses the apiClient to make requests
 const userApi = (authToken: string = '') => {
   const getMe = (): Promise<GetMeResponse> => {
     const config = {

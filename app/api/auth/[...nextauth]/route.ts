@@ -15,6 +15,7 @@ export const authOptions: NextAuthOptions = {
           password: credentials.password,
         }
 
+        // Login API call
         return axios({
           method: 'POST',
           url: `${process.env.NEXT_PUBLIC_API_URL}/users/login`,
@@ -24,6 +25,7 @@ export const authOptions: NextAuthOptions = {
           },
         })
           .then(async (res) =>
+            // Get user info API call
             axios({
               method: 'GET',
               url: `${process.env.NEXT_PUBLIC_API_URL}/users/me`,
@@ -49,6 +51,7 @@ export const authOptions: NextAuthOptions = {
     async signIn() {
       return true
     },
+    // Add accessToken to session
     async jwt({ token, user, account }) {
       if (account && user) {
         return {
@@ -65,7 +68,6 @@ export const authOptions: NextAuthOptions = {
       return session
     },
   },
-  debug: true,
 }
 
 const handler = NextAuth(authOptions)

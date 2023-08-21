@@ -1,5 +1,6 @@
 import * as yup from 'yup'
 
+// Yup/Formik validation schemas for forms
 export const loginSchema = (t: (value: string) => string) =>
   yup.object().shape({
     email: yup.string().email(t('email')).required(t('required')),

@@ -17,30 +17,30 @@ const Navigation = ({ mobile }: { mobile: boolean }) => {
   const isMobileNavOpen = useStoreSelector(
     (state) => state.layout.isMobileNavOpen,
   )
-  // Note | This could be done with on route change
   const handleCloseMobileNav = () => {
     if (isMobileNavOpen) dispatch(actions.layout.setMobileNavOpen(false))
     if (mobile) window.scrollTo(0, 0)
   }
 
-  // Login
+  // Login modal
   const handleSetLoginModalOpen = () => {
     handleCloseMobileNav()
     dispatch(actions.layout.setLoginModalOpen(true))
   }
 
-  // Register
+  // Register modal
   const handleSetRegisterModalOpen = () => {
     handleCloseMobileNav()
     dispatch(actions.layout.setRegisterModalOpen(true))
   }
 
-  // Profile
+  // Profile modal
   const handleSetProfileModalOpen = () => {
     handleCloseMobileNav()
     dispatch(actions.layout.setProfileModalOpen(true))
   }
 
+  // Disable scroll when mobile nav is open
   useEffect(() => {
     if (isMobileNavOpen) document.body.style.overflow = 'hidden'
     return (): void => {
@@ -69,6 +69,7 @@ const Navigation = ({ mobile }: { mobile: boolean }) => {
         </Link>
       </li>
 
+      {/* If unauthenticated, show buttons for login and register */}
       {status === 'unauthenticated' && (
         <>
           <li className="text-1">
@@ -91,6 +92,7 @@ const Navigation = ({ mobile }: { mobile: boolean }) => {
           </li>
         </>
       )}
+      {/* if authenticated, show profile  */}
       {status === 'authenticated' && session && (
         <button
           type="button"

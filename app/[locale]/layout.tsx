@@ -11,11 +11,6 @@ import Providers from '~/components/Providers'
 
 export const metadata: Metadata = {
   title: 'Povio - Assignment',
-  description: 'Vetting assignment for Povio',
-}
-
-export function generateStaticParams() {
-  return [{ locale: 'en' }]
 }
 
 const RootLayout = async ({
@@ -27,12 +22,14 @@ const RootLayout = async ({
     locale: string
   }
 }) => {
+  // load messages from locale file
   let messages
   try {
     messages = (await import(`~/locale/${locale}.json`)).default
   } catch (error) {
     notFound()
   }
+
   return (
     <html lang="en">
       <body suppressHydrationWarning>

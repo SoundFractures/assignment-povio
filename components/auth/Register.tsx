@@ -33,7 +33,7 @@ const AuthRegisterModal = () => {
     dispatch(actions.layout.setRegisterModalOpen(false))
     dispatch(actions.layout.setLoginModalOpen(true))
   }
-  // Form state
+
   // Form state and validation
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
@@ -69,10 +69,10 @@ const AuthRegisterModal = () => {
         .then(() => {
           setSuccess(true)
         })
-        .catch((error) => {
+        .catch((_error) => {
           // Note | this can be an array, more appropriate would be
           // to show the first error or make a bullet list of all errors
-          setError(error.response.data.error)
+          setError(_error.response.data.error)
         })
         .finally(() => {
           setLoading(false)

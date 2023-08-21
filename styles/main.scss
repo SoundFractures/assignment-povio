@@ -24,7 +24,6 @@ button:disabled {
   color: colors.$color-text;
 }
 
-// Form styles
 .form-row {
   display: flex;
   flex-direction: row;
@@ -35,16 +34,4 @@ button:disabled {
 
 .w-100 {
   width: 100%;
-}
-
-.w-50 {
-  width: 50%;
-}
-
-.mt-5 {
-  margin-top: 20px;
-}
-
-.flex-grow {
-  flex-grow: 1;
 }

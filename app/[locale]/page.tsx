@@ -10,16 +10,17 @@ import IconButton from '~/components/shared/IconButton'
 
 const HomePage = () => {
   const t = useTranslations('home')
-  const sightings = 8427
+  const { data: session } = useSession()
 
+  // Sightings (could be from API)
+  const sightings = 8427
   const formatNumberWithDecimals = (number: number) =>
     new Intl.NumberFormat('de', {
       maximumFractionDigits: 1,
     }).format(number)
 
-  const { data: session } = useSession()
+  // Get flowers
   const { flower } = useApi(session?.user.accessToken!)
-
   const [flowers, setFlowers] = useState<Flower[]>([])
   const handleGetFlowers = async () => {
     await flower.getFlowers().then((res) => {
@@ -46,8 +47,8 @@ const HomePage = () => {
       </section>
       <section className="home-flowers">
         <div className="home-flowers-images">
-          {flowers.map((flower) => (
-            <FlowerCard flower={flower} key={flower.id} />
+          {flowers.map((_flower) => (
+            <FlowerCard flower={_flower} key={_flower.id} />
           ))}
         </div>
       </section>

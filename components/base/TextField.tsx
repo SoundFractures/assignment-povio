@@ -7,7 +7,7 @@ type Props = {
   label: string
   value: string
   onChange: React.Dispatch<React.SetStateAction<string>>
-  onBlur?: React.Dispatch<React.SetStateAction<any>> // Couldnt find the right type?
+  onBlur?: React.Dispatch<React.SetStateAction<any>> // Couldn't find the right type?
   type?: 'text' | 'password'
   error?: boolean
   errorText?: string

@@ -8,18 +8,19 @@ import IconButton from '~/components/shared/IconButton'
 
 type Props = {
   flower: Flower
-  key: number
 }
 
-const FlowerCard = ({ flower, key }: Props) => {
+const FlowerCard = ({ flower }: Props) => {
   const { status } = useSession()
   const t = useTranslations('profile')
+
   return (
-    <article key={key} className="home-flowers-images-item">
+    <article className="home-flowers-images-item">
       <Image
         loader={({ src }) => src}
         src={flower.profile_picture}
         alt={flower.name}
+        unoptimized
         width={100}
         height={100}
         className="home-flowers-images-item-image"

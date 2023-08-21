@@ -5,9 +5,8 @@ type ApiClientConfig = {
   url: AxiosRequestConfig['url']
   data?: AxiosRequestConfig['data']
 }
-
+// Client to use in each API request
 const apiClient = (config: ApiClientConfig, authToken: string) => {
-  // get cookie token
   const client = axios.create({
     baseURL: process.env.NEXT_PUBLIC_API_URL,
     headers: {

@@ -15,10 +15,12 @@ const Appbar = () => {
 
   const { actions, useStoreDispatch, useStoreSelector } = useStore()
 
+  // Mobile Navigation Icon functionality
   const dispatch = useStoreDispatch()
   const isMobileNavOpen = useStoreSelector(
     (state) => state.layout.isMobileNavOpen,
   )
+
   const handleSetMobileNavOpen = (value: boolean) => {
     dispatch(actions.layout.setMobileNavOpen(value))
   }

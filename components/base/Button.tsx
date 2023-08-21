@@ -20,6 +20,7 @@ const BaseButton = ({
   className = '',
 }: Props) => {
   const buttonClassName = `base-button text-1 ${className}`
+
   return (
     <button
       className={buttonClassName}
