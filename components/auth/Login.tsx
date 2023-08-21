@@ -114,11 +114,13 @@ const AuthLoginModal = () => {
           <Button
             text={tActions('goToProfile')}
             submit
+            className="w-100"
             onClick={handleSetProfileModalOpen}
           />
           <Button
             text={tActions('ok')}
             submit
+            className="w-100"
             onClick={handleSetLoginModalClose}
           />
         </div>

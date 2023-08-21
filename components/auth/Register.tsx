@@ -158,7 +158,7 @@ const AuthRegisterModal = () => {
           <Button
             text={tActions('ok')}
             submit
-            className="w-100 mt-5"
+            className="w-100"
             onClick={handleOpenLoginModal}
           />
         </div>
