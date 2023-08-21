@@ -47,18 +47,6 @@ The project is structured as follows:
 - `styles` folder contains the global styles and theme using SCSS (7-1 pattern)
 - `public` folder contains the public assets like icons and images
 
-## Testing
-
-To run the tests, run the following command :
-
-```bash
-npm run test
-# or
-yarn test
-# or
-pnpm test
-```
-
 ## Learn More about Next.js
 
 To learn more about Next.js, take a look at the following resources:

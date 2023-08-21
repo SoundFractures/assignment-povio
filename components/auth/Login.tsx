@@ -59,7 +59,6 @@ const AuthLoginModal = () => {
           setSuccess(true)
         }
       })
-
       setLoading(false)
     },
   })
